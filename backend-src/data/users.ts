@@ -1,4 +1,4 @@
-import { User } from "../Interfaces/User"
+import { User } from "../interfaces/User"
 
 const users: User[] = [
 

@@ -1,4 +1,4 @@
-import { Room } from "../Interfaces/Room"
+import { Room } from "../interfaces/Room.js"
 
 const rooms: Room[] = [
 
