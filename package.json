@@ -17,6 +17,7 @@
     "@types/react-router-dom": "^5.3.3",
     "express": "^4.21.1",
     "joi": "^17.13.3",
+    "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.9.0",
     "react": "^18.3.1",
