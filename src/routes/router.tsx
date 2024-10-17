@@ -1,5 +1,7 @@
 import { createHashRouter } from "react-router-dom"
 import App from "../App"
+import LoginPage from "../components/loginPage.js"
+import ChatHomePageLogedIn from "../components/chatHomePageLogedIn.js"
 
 const router = createHashRouter([
     {
@@ -7,8 +9,8 @@ const router = createHashRouter([
         element: <App/>, 
         children: [
             {
-                path: "/rooms",
-                element: "</>"
+                path: "/protected",
+                element: <ChatHomePageLogedIn/>
             },
             {
                 path: "login",
@@ -22,7 +24,7 @@ const router = createHashRouter([
             },
             {
                 path: "/",
-                element: "</>"
+                element: <LoginPage/>
             }
         ]
     }

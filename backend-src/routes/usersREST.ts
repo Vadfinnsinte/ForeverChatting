@@ -2,7 +2,7 @@ import express, { Request, Response, Router } from "express";
 import { WithId } from "mongodb";
 import { User } from "../interfaces/User.js";
 import { searchUser } from "../mongoDB-src/users/searchUsers.js";
-import { getAllUsers } from "../mongoDB-src/users/fetAllUsers.js";
+import { getAllUsers } from "../mongoDB-src/users/getAllUsers.js";
 
 
 export const router: Router = express.Router();
