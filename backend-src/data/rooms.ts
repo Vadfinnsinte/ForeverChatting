@@ -23,3 +23,5 @@ const rooms: Room[] = [
    },
 
 ]
+
+export {rooms}

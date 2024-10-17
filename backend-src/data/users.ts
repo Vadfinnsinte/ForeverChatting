@@ -39,3 +39,5 @@ const users: User[] = [
     },
 
 ]
+
+export {users}
