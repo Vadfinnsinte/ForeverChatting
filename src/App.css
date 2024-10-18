@@ -1,6 +1,6 @@
 :root {
     --background-color: #464343; 
-    --accent-color: #7A7FE0;
+    --accent-color: #80b7b6;
     --opacity: 79%;
     --lock-color: #676363; 
     --text-color: #C3C3C3;
@@ -88,4 +88,35 @@ main {
     background-color: var(--accent-color);
     color: var(--background-color);
    
+}
+.header-chat{
+    color: var(--accent-color);
+    display: flex;
+    /* justify-content: space-between; */
+    
+}
+.FC {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    transform: rotate(-12deg);
+}
+.main-chatrooms{
+    color: var(--accent-color);
+}
+.chat-room-div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    
+
+}
+.dm-layout {
+    display: flex;
+    p{
+        margin: auto;
+        font-size: 19px;
+        margin-top: 1rem;
+    }
 }
