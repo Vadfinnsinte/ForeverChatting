@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useNavigate  } from "react-router-dom"
+
+const LS_KEY = 'JWT-DEMO--TOKEN'
 
 export interface Room {
     _id: string,
@@ -12,9 +15,20 @@ const ChatHomePageLogedIn = () => {
 
     const [loading, setLoading] = useState<boolean>(true); //ta bort
     console.log(loading);
-    
+    const navigate = useNavigate()
+
+	function logoutFunction() {
+		console.log("clicked");
+		// if(localStorage.getItem(LS_KEY) !== null) {
+			localStorage.removeItem(LS_KEY)
+			// return <Navigate to="/" replace/>
+			navigate("/")
+		// }
+
+	}
 
     async function getAllRooms() {
+
 
         try {
             const response = await fetch("/api/rooms", { method: "GET" });
@@ -44,6 +58,7 @@ const ChatHomePageLogedIn = () => {
         <>
         <header className="header-chat">
             <h1 className="FC">FC</h1>
+			<button onClick={logoutFunction}>Log out</button>
             <div className="user-header">
                 <img/>
                 <img/>

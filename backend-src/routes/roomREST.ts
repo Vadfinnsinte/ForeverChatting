@@ -1,6 +1,6 @@
 import express, { Response, Router } from "express";
 import { WithId } from "mongodb";
-import { Room } from "../models/Room";
+import { Room } from "../models/Room.js";
 import { getAllRooms } from "../mongoDB-src/rooms/getAllRooms.js";
 
 export const router: Router = express.Router();

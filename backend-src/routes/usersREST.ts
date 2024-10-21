@@ -32,7 +32,7 @@ if( !process.env.SECRET ) {
 }
 
 console.log('Body är: ', req.body)
-const userId = validateLogin(req.body.username, req.body.password)
+const userId = await validateLogin(req.body.username, req.body.password)
 // const userId = await getOneUsers(req.body.username, req.body.password)
 console.log('user id: ', userId)
 

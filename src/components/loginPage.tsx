@@ -17,7 +17,8 @@ const LoginPage = () => {
     const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
     
     async function handleLogin  () {
-        
+
+	
         try {
             // console.log("entered try, 1");
             
@@ -32,12 +33,16 @@ const LoginPage = () => {
         })
         console.log(2, username, password);
         if(response.status !== 200) {
-            console.log("try again 3");
+			console.log("try again 3");
             return
         }
+
+		setIsLoggedIn(!isLoggedIn)
         const token = await response.json()
         localStorage.setItem(LS_KEY, token.jwt)
-        setIsLoggedIn(!isLoggedIn)
+		// return <Navigate to="/chatrooms" replace/>
+
+
 
     }catch (error) {
         console.log("Try again later", error);
@@ -46,13 +51,19 @@ const LoginPage = () => {
     }
     if(isLoggedIn) {
        return <Navigate to="/chatrooms" replace/>
-	   //ändra så den går efter om det finns token ist.
+	   
     }
+	// if(localStorage.getItem(LS_KEY) !== null) {
+	// 	return <Navigate to="/chatrooms" replace/>
+		
+	//  }
+ 
 
     return (
       <>
       <header className='header'>
       <h1>ForeverChat</h1>
+	  
       </header>
 
       <main>
