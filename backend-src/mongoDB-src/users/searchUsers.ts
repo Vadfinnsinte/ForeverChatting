@@ -1,6 +1,6 @@
 import { WithId } from "mongodb";
-import { ClientType } from "../../interfaces/ClientType.js";
-import { User } from "../../interfaces/User.js";
+import { ClientType } from "../../models/ClientType.js";
+import { User } from "../../models/User.js";
 import { connectToDatabase } from "../connection.js";
 
 

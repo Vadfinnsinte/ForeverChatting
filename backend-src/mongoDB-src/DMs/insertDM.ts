@@ -1,7 +1,7 @@
 import { InsertOneResult, ObjectId } from "mongodb";
-import { ClientType } from "../../interfaces/ClientType";
+import { ClientType } from "../../models/ClientType";
 import { connectToDatabase } from "../connection.js";
-import { DM } from "../../interfaces/DM.js";
+import { DM } from "../../models/DM.js";
 
 type DMDocument = DM & Document; 
 let x: ClientType<DMDocument>

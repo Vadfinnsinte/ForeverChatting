@@ -5,11 +5,12 @@ export interface Room {
     name: string; 
     status: boolean;
 }
+//flytta ut.
 
 const ChatHomePageLogedIn = () => {
     const [allRooms, setAllRooms] = useState<Room[]>([]);
 
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(true); //ta bort
     console.log(loading);
     
 
@@ -30,13 +31,14 @@ const ChatHomePageLogedIn = () => {
         } catch (error) {
             console.error("Error fetching rooms:", error);
         } finally {
-            setLoading(false);  
+            setLoading(false);  //ta bort
         }
     }
 
     useEffect(() => {
         getAllRooms();  
     }, []);
+		// Flytta ut getAll och lägg state i store. 
 
     return (
         <>
@@ -46,7 +48,8 @@ const ChatHomePageLogedIn = () => {
                 <img/>
                 <img/>
             </div>
-        </header>
+        </header> 
+		{/* lägg hedader i egen component */}
 
          <main>
              <div className="chat-room-div">

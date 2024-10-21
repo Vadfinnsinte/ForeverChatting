@@ -46,6 +46,7 @@ const LoginPage = () => {
     }
     if(isLoggedIn) {
        return <Navigate to="/chatrooms" replace/>
+	   //ändra så den går efter om det finns token ist.
     }
 
     return (

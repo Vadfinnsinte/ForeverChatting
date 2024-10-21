@@ -1,6 +1,6 @@
 import { FindCursor, WithId } from "mongodb";
-import { ClientType } from "../../interfaces/ClientType";
-import { Room } from "../../interfaces/Room";
+import { ClientType } from "../../models/ClientType";
+import { Room } from "../../models/Room";
 import { connectToDatabase } from "../connection.js";
 
 

@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from "express";
 
-import { DM } from "../interfaces/DM.js"
+import { DM } from "../models/DM.js"
 import { isValidDM } from "../validation/validateDM.js";
 import { insertDM } from "../mongoDB-src/DMs/insertDM.js";
 

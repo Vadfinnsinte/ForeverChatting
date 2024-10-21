@@ -1,6 +1,6 @@
 import { FindCursor, WithId } from "mongodb";
-import { User } from "../../interfaces/User.js";
-import { ClientType } from "../../interfaces/ClientType.js";
+import { User } from "../../models/User.js";
+import { ClientType } from "../../models/ClientType.js";
 import { connectToDatabase } from "../connection.js";
 
 type UserDocument = User & Document; 
