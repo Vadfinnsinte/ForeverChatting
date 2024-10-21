@@ -1,5 +1,5 @@
 import Joi from "joi"
-import { DM } from "../interfaces/DM.js"
+import { DM } from "../models/DM.js"
 
 export const DMSchema = Joi.defaults(schema => {
     return schema.required()

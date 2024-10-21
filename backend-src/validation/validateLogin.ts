@@ -1,5 +1,5 @@
 import { ObjectId, WithId } from "mongodb"
-import { User } from "../interfaces/User.js"
+import { User } from "../models/User.js"
 import { getAllUsers } from "../mongoDB-src/users/getAllUsers.js"
 
 
