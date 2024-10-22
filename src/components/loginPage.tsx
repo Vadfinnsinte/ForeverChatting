@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Navigate  } from "react-router-dom"
-import { variableStore } from "../data/store"
+// import { variableStore } from "../data/store"
+
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
@@ -38,7 +39,7 @@ const LoginPage = () => {
             return
         }
 
-		setIsLoggedIn(!true)
+		setIsLoggedIn(true)
         const token = await response.json()
         localStorage.setItem(LS_KEY, token.jwt)
 		

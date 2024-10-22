@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate  } from "react-router-dom"
-import { Room } from "../data/models/Room";
+import { getAllRooms } from "../functions/getAllRooms.js";
+import { variableStore } from "../data/store.js";
+import { useCallback, useEffect } from "react";
+
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
@@ -8,7 +11,9 @@ const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
 const ChatHomePageLogedIn = () => {
-    const [allRooms, setAllRooms] = useState<Room[]>([]);
+
+const allRooms = variableStore((state) => state.allRooms);
+  const setAllRooms = variableStore((state) => state.setAllRooms);
 
     const navigate = useNavigate()
 
@@ -18,29 +23,17 @@ const ChatHomePageLogedIn = () => {
 			navigate("/")
 	}
 
-    async function getAllRooms() {
-
-
-        try {
-            const response = await fetch("/api/rooms", { method: "GET" });
-            if (!response.ok) {
-                console.error("Failed to fetch rooms, status:", response.status);
-                return;
-            }
-
-            const rooms: Room[] = await response.json(); 
-
-            setAllRooms(rooms);  
-        } catch (error) {
-            console.error("Error fetching rooms:", error);
+    const handelGet = useCallback(async () => {
+        const result = await getAllRooms();
+        if (result && result.length > 0) {
+          setAllRooms(result);
         }
-     
-    }
-
-    useEffect(() => {
-        getAllRooms();  
-    }, []);
-		// Flytta ut getAll och lägg state i store. 
+      }, [setAllRooms]);
+    
+      useEffect(() => {
+        handelGet();
+      }, [handelGet]);
+    
 
     return (
         <>
@@ -57,7 +50,7 @@ const ChatHomePageLogedIn = () => {
          <main>
              <div className="chat-room-div">
                 <p>Protected chat-page</p>
-                { allRooms.map(room => (
+                { allRooms && allRooms.map(room => (
                 <p key={room._id}> {room.name}</p>
                 ))}
 
