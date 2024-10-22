@@ -1,6 +1,6 @@
 import { useState } from "react"
-// import { variableStore } from "../data/store.js"
 import { Navigate  } from "react-router-dom"
+import { variableStore } from "../data/store"
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
@@ -11,7 +11,8 @@ const LoginPage = () => {
 
     const [username, setUsernameInput] = useState<string>("")
     const [password, setPasswordInput] = useState<string>("")
-    // const {setIsLoggedIn, isLoggedIn} = variableStore((state) => ({setIsLoggedIn: state.setIsLoggedIn,
+    // const {setIsLoggedIn, isLoggedIn} = variableStore((state) => ({
+    //     setIsLoggedIn: state.setIsLoggedIn,
     //     isLoggedIn: state.isLoggedIn
     // }))
     const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
@@ -20,7 +21,7 @@ const LoginPage = () => {
 
 	
         try {
-            // console.log("entered try, 1");
+           
             
         const data = {username, password}
         const response = await fetch('/api/users/login', {
@@ -37,10 +38,10 @@ const LoginPage = () => {
             return
         }
 
-		setIsLoggedIn(!isLoggedIn)
+		setIsLoggedIn(!true)
         const token = await response.json()
         localStorage.setItem(LS_KEY, token.jwt)
-		// return <Navigate to="/chatrooms" replace/>
+		
 
 
 
@@ -53,11 +54,6 @@ const LoginPage = () => {
        return <Navigate to="/chatrooms" replace/>
 	   
     }
-	// if(localStorage.getItem(LS_KEY) !== null) {
-	// 	return <Navigate to="/chatrooms" replace/>
-		
-	//  }
- 
 
     return (
       <>

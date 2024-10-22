@@ -14,13 +14,13 @@ app.use('/', (req: Request, _, next) => {
 	next()
 })
 
-app.use('/', express.static('./dist'))
 
-// app.use("/api/login", loginRouter)
+
 app.use("/api/rooms", roomRouter)
 app.use("/api/users", userRouter)
 app.use("/api/dm", dmRouter)
 
+app.use('/', express.static('./dist'))
 
 
 
