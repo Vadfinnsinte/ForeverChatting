@@ -9,10 +9,7 @@
 
 // export const router: Router = express.Router();
 
-// interface Payload {
-// 	userId: ObjectId;
-// 	iat: number;
-// }
+
 // type UserId = ObjectId
 
 // router.post('/login', async (req: Request, res: Response) => {

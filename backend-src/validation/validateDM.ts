@@ -8,12 +8,9 @@ export const DMSchema = Joi.defaults(schema => {
         messageText: Joi.string()
             .min(1)
             .required(),
-        reciverId: Joi.string()
-        .length(24)
-        .hex(),
-        senderId: Joi.string()
-        .length(24)
-        .hex()
+        reciverName: Joi.string(),
+        senderName: Joi.string()
+    
     }
 ).unknown(false)
 

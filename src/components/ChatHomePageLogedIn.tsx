@@ -3,6 +3,8 @@ import { useNavigate  } from "react-router-dom"
 import { getAllRooms } from "../functions/getAllRooms.js";
 import { variableStore } from "../data/store.js";
 import { useCallback, useEffect } from "react";
+import Header from "./Header.js";
+import RenderDmNames from "./RenderDmNames.js";
 
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
@@ -37,24 +39,19 @@ const allRooms = variableStore((state) => state.allRooms);
 
     return (
         <>
-        <header className="header-chat">
-            <h1 className="FC">FC</h1>
-			<button onClick={logoutFunction}>Log out</button>
-            <div className="user-header">
-                <img/>
-                <img/>
-            </div>
-        </header> 
-		{/* lägg hedader i egen component */}
+            <Header/> 
+		
 
          <main>
              <div className="chat-room-div">
-                <p>Protected chat-page</p>
+                <h3>Chat-Rooms</h3>
                 { allRooms && allRooms.map(room => (
-                <p key={room._id}> {room.name}</p>
+                    <p key={room._id}> {room.name}</p>
                 ))}
 
              </div>
+                <button className="button" onClick={logoutFunction}>Log out</button>
+                <RenderDmNames/> 
             </main>
 
 

@@ -1,6 +1,6 @@
 :root {
     --background-color: #464343; 
-    --accent-color: #80b7b6;
+    --accent-color: #7A7FE0;
     --opacity: 79%;
     --lock-color: #676363; 
     --text-color: #C3C3C3;
@@ -109,6 +109,10 @@ main {
     flex-direction: column;
     margin: auto;
     text-align: center;
+
+        h3 {
+            color: var(--accent-color);
+        }
     
 
 }
