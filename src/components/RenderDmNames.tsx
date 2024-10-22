@@ -15,6 +15,8 @@ const RenderDmNames = () => {
             setUniqueNames(names)
         }
         //lägg till skickade också.
+
+        
     }
      
     useEffect(() => {

@@ -19,6 +19,7 @@ body {
 }
 .header {
     display: flex;
+  
         h1 {
             margin: auto;
             margin-top: 0.5rem;
@@ -27,6 +28,29 @@ body {
             font-size: 40px;
             color: var(--accent-color);
         }
+}
+.header-chat {
+    display: flex;
+    justify-content: space-between;
+}
+.user-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    background-color: var(--background-color);
+    
+}
+.settings {
+   position: absolute;
+   right: 0.4em;
+   top: 1.5em;
+}
+
+.header-profile-pic img {
+    object-fit: cover;
 }
 main {
     display: flex;
@@ -109,18 +133,11 @@ main {
     flex-direction: column;
     margin: auto;
     text-align: center;
+    border-bottom: 1px solid #2F2C2C;
 
         h3 {
             color: var(--accent-color);
         }
     
 
-}
-.dm-layout {
-    display: flex;
-    p{
-        margin: auto;
-        font-size: 19px;
-        margin-top: 1rem;
-    }
 }

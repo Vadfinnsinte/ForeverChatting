@@ -8,11 +8,6 @@ export default defineConfig({
 	  proxy: {
 		'/api': {
 		  target: 'http://localhost:1337/',
-		//   changeOrigin: true,
-		//   rewrite: (path) => {
-		// 	console.log('Rewriting path:', path);
-		// 	return path.replace(/^\/api/, '');
-		//   }
 		},
 	  }
 	}

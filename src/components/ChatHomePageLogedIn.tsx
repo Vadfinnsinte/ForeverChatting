@@ -10,8 +10,6 @@ import RenderDmNames from "./RenderDmNames.js";
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
-
-
 const ChatHomePageLogedIn = () => {
 
 const allRooms = variableStore((state) => state.allRooms);
@@ -50,8 +48,8 @@ const allRooms = variableStore((state) => state.allRooms);
                 ))}
 
              </div>
-                <button className="button" onClick={logoutFunction}>Log out</button>
                 <RenderDmNames/> 
+                <button className="button" onClick={logoutFunction}>Log out</button>
             </main>
 
 
