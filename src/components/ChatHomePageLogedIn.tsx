@@ -14,11 +14,12 @@ const ChatHomePageLogedIn = () => {
 
 const allRooms = useVariableStore((state) => state.allRooms);
   const setAllRooms = useVariableStore((state) => state.setAllRooms);
+  const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
 
     const navigate = useNavigate()
 
 	function logoutFunction() {
-
+      setIsLoggedIn(false) // håll syncad med LS_key. 
 			localStorage.removeItem(LS_KEY)
 			navigate("/")
 	}

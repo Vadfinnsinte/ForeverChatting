@@ -15,7 +15,8 @@ async function getMatchingDmNames(userName: string): Promise<WithId<DM>[]> {
         
         x = await connectToDatabase<DMDocument>("dms")
         
-        const cursor: FindCursor <WithId<DM>> = x.collection.find({ reciverName: userName})
+        const cursor: FindCursor <WithId<DM>> = x.collection.find({$or: [{ reciverName: userName }, { senderName: userName }]})
+        
 
         const found: WithId<DM>[] = await cursor.toArray()
         

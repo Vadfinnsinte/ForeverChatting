@@ -6,8 +6,14 @@ export async function getDmMathingUser(): Promise<DM[] | undefined > {
 
     
     try {
+
+    
     
         const token = localStorage.getItem(LS_KEY);
+        // console.log("getDMMatchingUser rad 11", token);
+        if(!token) {
+            return 
+        }
         
         const response = await fetch('/api/dm/matching', {
             method: 'GET',

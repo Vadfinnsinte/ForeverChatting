@@ -13,9 +13,11 @@ const LoginPage = () => {
     const [password, setPasswordInput] = useState<string>("")
  
     
-    const {setIsLoggedIn, isLoggedIn} = useVariableStore(useShallow((state) => ({
+    const {setIsLoggedIn, isLoggedIn, setActiveUser, activeUser} = useVariableStore(useShallow((state) => ({
         setIsLoggedIn: state.setIsLoggedIn,
-        isLoggedIn: state.isLoggedIn
+        isLoggedIn: state.isLoggedIn,
+        setActiveUser: state.setActiveUser,
+        activeUser: state.activeUser
     })))
     
     
@@ -39,10 +41,14 @@ const LoginPage = () => {
                 return
             }
             
-            setIsLoggedIn(true)
-
+            
             const token = await response.json()
             localStorage.setItem(LS_KEY, token.jwt)
+            setIsLoggedIn(true)
+            setActiveUser(data.username) // få den att sparas efter omladdning av sidan.? 
+            console.log("detta är activeUser: ",activeUser);
+            
+            // console.log("LocalStorage och store är uppdaterade", token.jwt);
             
             
             
