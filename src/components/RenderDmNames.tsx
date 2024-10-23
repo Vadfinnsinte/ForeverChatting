@@ -26,14 +26,17 @@ const RenderDmNames = () => {
             ])]
             setUniqueNames(names)
             setDmObjects(matchingdm)
+          
+            
         }
         //lägg till skickade också.
         
+
         
     }
     
     const handlePrivateDM = (name: string) => {
-        console.log(name);
+    
         // rendera privatDm sidan och skicka med name. 
         navigate(`/private-dm/${name}`)
     }

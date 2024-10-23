@@ -4,4 +4,5 @@ export interface DM {
     senderName: string;
     likes: number;
     date: Date;
+    _id: string
 }
