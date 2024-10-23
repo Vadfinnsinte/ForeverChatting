@@ -5,10 +5,11 @@ interface VariableStore {
     isLoggedIn: boolean;
     setIsLoggedIn: (value: boolean) => void;
     allRooms: Room[] | null;
-    setAllRooms: (rooms: Room[] | null) => void
+    setAllRooms: (rooms: Room[] | null) => void;
+    
 }
 
-const variableStore = create<VariableStore>((set) => ({
+const useVariableStore = create<VariableStore>((set) => ({
     isLoggedIn: false,
 
     setIsLoggedIn: (value:boolean) => set({isLoggedIn: value}), 
@@ -17,11 +18,12 @@ const variableStore = create<VariableStore>((set) => ({
     
     setAllRooms: (rooms: Room[] | null) => set ({
         allRooms: rooms
-    })
+    }),
+    
 
 
 }))
 
 
 
-export {variableStore}
+export {useVariableStore}

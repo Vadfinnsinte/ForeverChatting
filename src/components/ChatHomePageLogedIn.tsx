@@ -1,7 +1,7 @@
-// import { useEffect, useState } from "react";
+
 import { useNavigate  } from "react-router-dom"
 import { getAllRooms } from "../functions/getAllRooms.js";
-import { variableStore } from "../data/store.js";
+import { useVariableStore } from "../data/store.js";
 import { useCallback, useEffect } from "react";
 import Header from "./Header.js";
 import RenderDmNames from "./RenderDmNames.js";
@@ -12,13 +12,13 @@ const LS_KEY = 'JWT-DEMO--TOKEN'
 
 const ChatHomePageLogedIn = () => {
 
-const allRooms = variableStore((state) => state.allRooms);
-  const setAllRooms = variableStore((state) => state.setAllRooms);
+const allRooms = useVariableStore((state) => state.allRooms);
+  const setAllRooms = useVariableStore((state) => state.setAllRooms);
 
     const navigate = useNavigate()
 
 	function logoutFunction() {
-		console.log("clicked");
+
 			localStorage.removeItem(LS_KEY)
 			navigate("/")
 	}
