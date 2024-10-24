@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getDmMathingUser } from "../functions/getDmUserNames"
 import { useVariableStore } from "../data/store"
 import { useNavigate } from "react-router-dom"
+import { getActiveUser } from "../functions/getAllRooms"
 
 
 
@@ -9,39 +10,41 @@ import { useNavigate } from "react-router-dom"
 
 const RenderDmNames = () => {
     const [uniqueNames, setUniqueNames] = useState<string[]>([])
+    const setActiveUser = useVariableStore(state => state.setActiveUser)
     const activeUser = useVariableStore(state => state.activeUser)
     const setDmObjects = useVariableStore(state => state.setDmObjects)
     const navigate = useNavigate()
+    
+
 
     const handleGet = async () => {
+        const activeusername = await getActiveUser()
         const matchingdm = await getDmMathingUser()
+        if(activeusername){
+            setActiveUser(activeusername)
+            console.log("activeUser in chat: ", activeUser);
+            
+          }
         if(matchingdm) {
             const names = [...new Set([
                 ...matchingdm
-                .filter( username => username.senderName !== activeUser)
+                .filter( username => username.senderName !== activeusername)
                 .map(username => username.senderName),
                 ...matchingdm
-                .filter(dm => dm.reciverName && dm.reciverName !== activeUser)
+                .filter(dm => dm.reciverName && dm.reciverName !== activeusername)
                 .map(dm => dm.reciverName)
             ])]
             setUniqueNames(names)
             setDmObjects(matchingdm)
-          
+  
             
         }
-        //lägg till skickade också.
-        
-
-        
     }
+   
     
     const handlePrivateDM = (name: string) => {
-    
-        // rendera privatDm sidan och skicka med name. 
         navigate(`/private-dm/${name}`)
     }
-    
-    
     
     
     useEffect(() => {

@@ -1,6 +1,10 @@
 import { DM } from "../data/models/DM.js";
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
+// interface DmMatchingUserResponse {
+//     matchingdm: DM[] ;
+//     username: string | null
+// }
 
 export async function getDmMathingUser(): Promise<DM[] | undefined > {
 

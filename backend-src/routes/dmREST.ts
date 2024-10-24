@@ -9,7 +9,7 @@ const { verify } = jwt
 
 export const router: Router = express.Router();
 
-interface Payload {
+export interface Payload {
 	userId: string;
 	iat: number;
 }

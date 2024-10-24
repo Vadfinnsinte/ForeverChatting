@@ -4,19 +4,26 @@ import { useEffect, useState } from "react";
 import { DM } from "../data/models/DM";
 import Header from "./Header";
 import { getDmMathingUser } from "../functions/getDmUserNames";
+import { getActiveUser } from "../functions/getAllRooms";
 
 
 const RenderPrivateDM = () => {
     const { name } = useParams<{ name: string }>()
     console.log(name);
     const[ sortedDms, setSortedDms] = useState<DM[] | null>(null) 
-    const activeUser = useVariableStore(state => state.activeUser)
+    const setActiveUser = useVariableStore(state => state.setActiveUser)
  
     const handleGet = async () => {
+        const activeusername = await getActiveUser()
         const dmObjects = await getDmMathingUser()
+        if(activeusername){
+            setActiveUser(activeusername)
+            console.log("activeUser in chat: ", activeusername);
+            
+          }
         if(dmObjects){
-            const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeUser && dm.reciverName === name) || 
-            (dm.senderName === name && dm.reciverName === activeUser))
+            const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeusername && dm.reciverName === name) || 
+            (dm.senderName === name && dm.reciverName === activeusername))
             
             const sortedDms = matchingDms.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
             setSortedDms(sortedDms)

@@ -5,11 +5,12 @@ import { User } from "../models/User.js";
 import { searchUser } from "../mongoDB-src/users/searchUsers.js";
 import { getAllUsers } from "../mongoDB-src/users/getAllUsers.js";
 import {validateLogin} from "../validation/validateLogin.js"
+import { Payload } from "./dmREST.js";
 
 
 export const router: Router = express.Router();
 
-const { sign } = jwt
+const { sign, verify } = jwt
 
 router.get("/", async(_, res: Response<WithId<User>[]>) => {
     try{
@@ -77,3 +78,36 @@ router.get("/search",async (req: Request , res: Response<WithId<User>[] | string
       }
     }
   );
+
+  router.get("/activeuser", async (req: Request, res: Response) => {
+
+    if( !process.env.SECRET ) {
+      res.sendStatus(500)
+      return
+    }
+    let token = req.headers.authorization
+    if( !token ) {
+      res.sendStatus(401)
+      return
+    }
+    let payload: Payload
+  
+    try {
+      payload = verify(token, process.env.SECRET) as Payload
+      
+    } catch(error) {
+      res.sendStatus(400) 
+      return
+    }
+  
+    let userName: string = payload.userId
+
+      if(userName) {
+        res.send(userName)
+  
+      }else {
+        res.sendStatus(400)
+      }
+      
+     
+  })

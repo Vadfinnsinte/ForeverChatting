@@ -2,7 +2,9 @@
 import { Outlet } from 'react-router-dom'
 import './App.css'
 
+
 function App() {
+
 
   // hämta användarens profil-info. 
           // if profileState == null 
@@ -10,8 +12,10 @@ function App() {
         // https://react.dev/reference/react/Suspense 
 
   return (
-
+    <>
+    {/* <Suspense fallback={<div>Loading user...</div>}/> */}
     <Outlet/>
+    </>
   
   )
 }
