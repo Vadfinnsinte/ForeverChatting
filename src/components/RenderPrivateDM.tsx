@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useVariableStore } from "../data/store";
 import { useEffect, useRef, useState } from "react";
 import { DM } from "../data/models/DM";
@@ -17,6 +17,7 @@ const RenderPrivateDM = () => {
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const activeUser = useVariableStore(state => state.activeUser)
     const messageDivRef = useRef<HTMLDivElement>(null)
+    const navigate = useNavigate()
 
 
     const handleGet = async () => {
@@ -83,6 +84,9 @@ const RenderPrivateDM = () => {
             messageDivRef.current.scrollTop = messageDivRef.current.scrollHeight; 
         }
     };
+    const handleback = () => {
+        navigate("/chatrooms")
+    }
     useEffect(() => {
         if (sortedDms) {
             scrollToBottom()
@@ -98,7 +102,7 @@ const RenderPrivateDM = () => {
         <main className="chat-page-main">
         <Header/> 
         <div>
-        <IoArrowBackOutline className="back-icon"/>
+        <IoArrowBackOutline onClick={handleback} className="back-icon"/>
         <h3 className="dm-name">{name}</h3>
 
         </div>

@@ -42,7 +42,9 @@ const allRooms = useVariableStore((state) => state.allRooms);
       useEffect(() => {
         handelGet();
       }, [handelGet]);
-
+const handleChat = (room:string) => {
+  navigate(`/chat-room/${room}`)
+}
 
     return (
         <>
@@ -53,7 +55,7 @@ const allRooms = useVariableStore((state) => state.allRooms);
              <div className="chat-room-div">
                 <h3>Chat-Rooms</h3>
                 { allRooms && allRooms.map(room => (
-                    <p key={room._id}> {room.name}</p>
+                    <p onClick={() => handleChat(room.name)} key={room._id}> {room.name}</p>
                 ))}
 
              </div>

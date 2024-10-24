@@ -1,9 +1,10 @@
 import { ObjectId } from "mongodb";
 
 export interface RoomMessage {
-    senderId?: ObjectId;
+    senderName?: string;
+    guest: string;
     messageText: string;
-    RoomId: ObjectId;
+    roomName: ObjectId;
     date: Date;
-    likes: number;
+    likes?: number;
 }
