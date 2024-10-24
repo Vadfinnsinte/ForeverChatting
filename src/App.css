@@ -174,12 +174,17 @@ main {
         }
         
 }
+.message-div {
+    height: 27rem;
+    overflow: scroll;
+}
 .message-input {
-   margin-top: 1em;
+   margin-top: 2em;
    border-radius: 11px;
    background-color: var(--accent-color);
    resize: none; 
    overflow: auto;
+    position: relative;
 }
 .send-btn {
     background-color: var(--accent-color);

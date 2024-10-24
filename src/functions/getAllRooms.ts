@@ -25,7 +25,7 @@ export async function getAllRooms(): Promise<Room[] | null> {
 }
 export const getActiveUser = async () => {
     try {
-    console.log("entered getactiveUser");
+    // console.log("entered getactiveUser");
       const token = localStorage.getItem(LS_KEY);
     
       if(!token) {
@@ -45,7 +45,7 @@ export const getActiveUser = async () => {
          
       }
       const username = await response.text()
-      console.log("from getactiveUser.TSX: ", username);
+    //   console.log("from getactiveUser.TSX: ", username);
       
       if(username !== null) {
 

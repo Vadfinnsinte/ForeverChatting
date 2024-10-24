@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { getAllRooms } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
-import { Navigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 
