@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb";
-
 export interface RoomMessage {
     senderName?: string;
     guest: string;
@@ -7,4 +5,5 @@ export interface RoomMessage {
     roomName: string;
     date: Date;
     likes?: number;
+    _id : string
 }
