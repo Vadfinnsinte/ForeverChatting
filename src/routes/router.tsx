@@ -3,6 +3,7 @@ import App from "../App"
 import LoginPage from "../components/loginPage.js"
 import ChatHomePageLogedIn from "../components/ChatHomePageLogedIn.js"
 import RenderPrivateDM from "../components/RenderPrivateDM.js"
+import ChatroomsGuest from "../components/ChatroomsGuest.js"
 
 
 const router = createHashRouter([
@@ -13,6 +14,10 @@ const router = createHashRouter([
             {
                 path: "/chatrooms",
                 element: <ChatHomePageLogedIn/>
+            },
+            {
+                path: "/chatrooms-guest",
+                element: <ChatroomsGuest/>
             },
             {
                 path: "private-dm/:name",

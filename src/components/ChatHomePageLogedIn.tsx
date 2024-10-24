@@ -16,8 +16,6 @@ const ChatHomePageLogedIn = () => {
 const allRooms = useVariableStore((state) => state.allRooms);
   const setAllRooms = useVariableStore((state) => state.setAllRooms);
   const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
-  // const setActiveUser = useVariableStore(state => state.setActiveUser)
-  // const activeUser = useVariableStore(state => state.activeUser)
 
     const navigate = useNavigate()
 
@@ -28,16 +26,17 @@ const allRooms = useVariableStore((state) => state.allRooms);
 	}
 
     const handelGet = useCallback(async () => {
+
+      const username = await getActiveUser()
+      if(!username) {
+        navigate("/chatrooms-guest")
+      }
         const result = await getAllRooms();
-        // const username = await getActiveUser()
+
         if (result && result.length > 0) {
           setAllRooms(result);
         }
-        // if(username){
-        //   setActiveUser(username)
-        //   console.log("activeUser in chat: ", activeUser);
-          
-        // }
+     
       }, [setAllRooms]);
     
       useEffect(() => {

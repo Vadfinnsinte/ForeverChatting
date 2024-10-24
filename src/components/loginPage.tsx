@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Navigate  } from "react-router-dom"
 import { useVariableStore } from "../data/store"
 import { useShallow } from "zustand/react/shallow"
+import { getActiveUser } from "../functions/getAllRooms"
 
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
@@ -20,9 +21,16 @@ const LoginPage = () => {
         activeUser: state.activeUser
     })))
     
+    const handleGetUser = async () => {
+        const loggedIn = await getActiveUser()
+        if(loggedIn) {
+            setIsLoggedIn(true)
+        }
+    
+    }
     
     async function handleLogin  () {
-      
+        
         
         try {
             
@@ -59,6 +67,9 @@ const LoginPage = () => {
             
         }
     } // handleLogin
+    useEffect(() => {
+        handleGetUser();
+      }, [handleGetUser]);
     
     if(isLoggedIn) {
         return <Navigate to="/chatrooms" replace/>
