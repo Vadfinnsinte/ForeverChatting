@@ -17,6 +17,13 @@
 body {
     background-color: var(--background-color);
 }
+
+.navlink {
+    color: var(--accent-color);
+    margin-top: 0.3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 .header {
     display: flex;
   
@@ -74,11 +81,11 @@ main {
             color: var(--background-color);
         }
 }
-.purple-p {
+/* .purple-p {
     color: var(--accent-color);
     text-align: center;
     text-decoration: underline;
-}
+} */
 
 .input {
     height: var(--input-height);

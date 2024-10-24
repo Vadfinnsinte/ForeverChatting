@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { getAllRooms } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
+import { Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const ChatroomsGuest  = () => {
@@ -36,7 +38,10 @@ const ChatroomsGuest  = () => {
         ))}
         
         </div>
-        
+        <div className="chat-room-div">
+        <h3> DM's 🔒</h3>
+        <NavLink className="navlink" to="/">Login to send DM's</NavLink> 
+        </div>
         </>
     )
 }

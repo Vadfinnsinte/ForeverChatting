@@ -3,6 +3,7 @@ import { Navigate  } from "react-router-dom"
 import { useVariableStore } from "../data/store"
 import { useShallow } from "zustand/react/shallow"
 import { getActiveUser } from "../functions/getAllRooms"
+import { NavLink } from "react-router-dom"
 
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
@@ -90,7 +91,7 @@ const LoginPage = () => {
         <input onChange={(e) => setPasswordInput(e.target.value)} className="input" type="text" placeholder="Password"></input>
         <button onClick={handleLogin} className="login-btn button" >Login</button>
         </div>
-        <p className="purple-p">Continue as guest</p>
+        <NavLink to="/chatrooms-guest" className="navlink">Continue as guest</NavLink>
         <button className="create-user-btn button">Create user</button>
         </main>
         </>
