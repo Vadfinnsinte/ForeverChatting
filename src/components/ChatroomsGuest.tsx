@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { getAllRooms } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
 import { NavLink } from "react-router-dom";
+import { FaLock } from "react-icons/fa";
 
 
 const ChatroomsGuest  = () => {
@@ -31,14 +32,14 @@ const ChatroomsGuest  = () => {
         { allRooms && allRooms.map(room => (
             <p  className={room.status ? 'locked' : 'unlocked'} key={room._id}> {room.name}{room.status === true && (
                 <span className="lock-icon" aria-label="Locked">
-                    🔒
+                    <FaLock/>
                 </span>
             )}</p>
         ))}
         
         </div>
         <div className="chat-room-div">
-        <h3> DM's 🔒</h3>
+        <h3 className="locked"> DM's <FaLock className="lock-icon"/> </h3>
         <NavLink className="navlink" to="/">Login to send DM's</NavLink> 
         </div>
         </>

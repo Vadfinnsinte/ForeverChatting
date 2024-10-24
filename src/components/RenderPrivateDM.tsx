@@ -5,6 +5,8 @@ import { DM } from "../data/models/DM";
 import Header from "./Header";
 import { getDmMathingUser } from "../functions/getDmUserNames";
 import { getActiveUser } from "../functions/getAllRooms";
+import { IoArrowBackOutline } from "react-icons/io5";
+
 
 
 const RenderPrivateDM = () => {
@@ -95,7 +97,11 @@ const RenderPrivateDM = () => {
     return (
         <main className="chat-page-main">
         <Header/> 
-        <h3>{name}</h3>
+        <div>
+        <IoArrowBackOutline className="back-icon"/>
+        <h3 className="dm-name">{name}</h3>
+
+        </div>
         <div className="message-div " ref={messageDivRef}>
 
         {sortedDms? sortedDms.map((dm) => (

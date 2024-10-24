@@ -3,6 +3,7 @@ import { getDmMathingUser } from "../functions/getDmUserNames"
 import { useVariableStore } from "../data/store"
 import { useNavigate } from "react-router-dom"
 import { getActiveUser } from "../functions/getAllRooms"
+import { RiChatNewLine } from "react-icons/ri";
 
 
 
@@ -55,7 +56,10 @@ const RenderDmNames = () => {
         <>
         <div className="chat-room-div">
         
-        <h3>DM's</h3>
+        <div className="DM-div">
+        <h3 className="DM-h">DM's  </h3>
+        <RiChatNewLine className="new-chat-icon" /> 
+        </div>
         {uniqueNames.map((name, index) => (
             <p onClick={() => handlePrivateDM(name)} key={index}>{name}</p>
         ))}

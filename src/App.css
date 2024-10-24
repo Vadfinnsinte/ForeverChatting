@@ -123,6 +123,7 @@ main {
 .header-chat{
     color: var(--accent-color);
     display: flex;
+    
     /* justify-content: space-between; */
     
 }
@@ -138,22 +139,38 @@ main {
 .chat-room-div {
     display: flex;
     flex-direction: column;
+    /* display: grid;
+    grid-template-columns:  1fr; */
     margin: auto;
     text-align: center;
     border-bottom: 1px solid #2F2C2C;
 
-        h3 {
+        .DM-h {
             color: var(--accent-color);
         }
     
 
+}
+.DM-div {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+     
+ } 
+
+.new-chat-icon {
+    
+    place-self: center;
+
+    margin-left: 0.3rem;
 }
 .chat-page-main {
     display: flex;
         h3{
             color: var(--accent-color);
             text-decoration: underline;
-            margin: auto;
+            /* margin: auto; */
+            text-align: center;
+            margin-top: 0.7rem;
         }
 
 }
@@ -175,8 +192,9 @@ main {
         
 }
 .message-div {
-    height: 27rem;
+    height: 24rem;
     overflow: scroll;
+    margin: 1rem 2rem 0 2rem;
 }
 .message-input {
    margin-top: 2em;
@@ -184,8 +202,11 @@ main {
    background-color: var(--accent-color);
    resize: none; 
    overflow: auto;
-    position: relative;
+
 }
+/* .dm-name {
+    margin-top: 0;
+} */
 .send-btn {
     background-color: var(--accent-color);
     margin-top: 0.2em;
@@ -204,4 +225,21 @@ main {
 }
 .locked {
     color: var(--lock-color);
+
+        h3{
+            color: var(--lock-color);
+        }
+}
+.lock-icon {
+    color: var(--text-color);
+    margin-left: 0.3rem;
+}
+
+.back-icon{
+    font-size: 25px;
+    /* color: var(--lock-color); */
+    color: #2F2C2C;
+    position: absolute;
+    margin: 1rem 0 0 1rem;
+
 }
