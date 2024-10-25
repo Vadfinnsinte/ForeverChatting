@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 
 export interface RoomMessage {
     senderName?: string;
@@ -8,3 +7,5 @@ export interface RoomMessage {
     date: Date;
     likes?: number;
 }
+
+// gör sendername sparar som guest när man inte är inloggad.

@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom"
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
-
+// Lägg till att user sparas som guest!! 
 const LoginPage = () => {
     
     const [username, setUsernameInput] = useState<string>("")
