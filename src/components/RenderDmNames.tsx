@@ -12,7 +12,6 @@ import { RiChatNewLine } from "react-icons/ri";
 const RenderDmNames = () => {
     const [uniqueNames, setUniqueNames] = useState<string[]>([])
     const setActiveUser = useVariableStore(state => state.setActiveUser)
-    const activeUser = useVariableStore(state => state.activeUser)
     const setDmObjects = useVariableStore(state => state.setDmObjects)
     const navigate = useNavigate()
     
@@ -23,7 +22,6 @@ const RenderDmNames = () => {
         const matchingdm = await getDmMathingUser()
         if(activeusername){
             setActiveUser(activeusername)
-            console.log("activeUser in chat: ", activeUser);
             
           }
         if(matchingdm) {

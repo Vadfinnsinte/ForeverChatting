@@ -84,7 +84,7 @@ const RenderPrivateDM = () => {
             messageDivRef.current.scrollTop = messageDivRef.current.scrollHeight; 
         }
     };
-    const handleback = () => {
+     const handleback = () => {
         navigate("/chatrooms")
     }
     useEffect(() => {

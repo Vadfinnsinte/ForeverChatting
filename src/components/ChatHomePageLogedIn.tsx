@@ -7,6 +7,7 @@ import Header from "./Header.js";
 import RenderDmNames from "./RenderDmNames.js";
 
 
+
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
@@ -17,7 +18,7 @@ const allRooms = useVariableStore((state) => state.allRooms);
   const setAllRooms = useVariableStore((state) => state.setAllRooms);
   const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
 	function logoutFunction() {
       setIsLoggedIn(false) // håll syncad med LS_key. 
@@ -42,9 +43,10 @@ const allRooms = useVariableStore((state) => state.allRooms);
       useEffect(() => {
         handelGet();
       }, [handelGet]);
-const handleChat = (room:string) => {
-  navigate(`/chat-room/${room}`)
-}
+  const handleChat = (room:string) => {
+    
+    navigate(`/chat-room/${room}`)
+  }
 
     return (
         <>

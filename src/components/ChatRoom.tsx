@@ -10,21 +10,30 @@ import { useVariableStore } from "../data/store";
 
 const ChatRoom = () => {
     const { room } = useParams<{ room: string }>()
-    console.log(room);
+    
     const [sortedMessages, setSortedMessages] = useState<RoomMessage[] | null>(null)
     const [messageInput, setMessageInput] = useState("")
     const messageDivRef = useRef<HTMLDivElement>(null)
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const activeUser = useVariableStore(state => state.activeUser)
     const navigate = useNavigate()
-
+    
     const handleGet = async () => {
-        const activeUserName = await getActiveUser()
-        const roomMessages = await getAllRoomMessages()
-
-        if(activeUserName) {
-            setActiveUser(activeUserName)
+        
+        if(activeUser !== "guest") {
+            const activeUserName = await getActiveUser()
+            if(activeUserName) {
+                setActiveUser(activeUserName)
+            }else {
+                setActiveUser("guest")
+            }
+            
         }
+        const roomMessages = await getAllRoomMessages()
+        
+        // if(activeUserName) {
+        //     setActiveUser(activeUserName)
+        // }
         
         if (roomMessages) {
             const matchingMessages = roomMessages.filter(message => message.roomName === room).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
@@ -34,8 +43,8 @@ const ChatRoom = () => {
         }
     }
     const handleSendMessage = async () => {
-
-        console.log(messageInput);
+        
+     
         if(messageInput === ""){
             return
         }
@@ -46,7 +55,7 @@ const ChatRoom = () => {
             date: new Date()
         }
         try {
-            console.log("går in i try", message);
+        
             
             const data = message
             const response = await fetch('/api/room-messages/room', {
@@ -57,26 +66,27 @@ const ChatRoom = () => {
                 body: JSON.stringify( data )
                 
             })
-
+            
             if(response.status !== 201) {
                 console.log("try again")
                 return
             }
             setMessageInput("")  
             scrollToBottom()  
-          
-        
-    } catch (error) {
-        console.log("try again later", error);
-        
-    }finally {
-        await handleGet() 
-        scrollToBottom()  
-    }
+            
+            
+        } catch (error) {
+            console.log("try again later", error);
+            
+        }finally {
+            await handleGet() 
+            scrollToBottom()  
+        }
     }
     const handleback = () => {
         navigate("/chatrooms")
     }
+
     const scrollToBottom = () => {
         if (messageDivRef.current) {
             messageDivRef.current.scrollTop = messageDivRef.current.scrollHeight; 
@@ -108,8 +118,8 @@ const ChatRoom = () => {
             <p>EmptyChat :/</p>
         )}
         </div>
-             <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
-             <button onClick={handleSendMessage} className="button send-btn" >Send</button>
+        <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
+        <button onClick={handleSendMessage} className="button send-btn" >Send</button>
         </main>
     )
 }

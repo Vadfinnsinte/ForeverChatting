@@ -13,7 +13,7 @@ async function validateLogin(username: string, password: string): Promise <strin
 	if( matchingUser ) {
 		return matchingUser.username
 	}
-	return null // return "guset" istället
+	return null 
 }
 
 export {validateLogin}

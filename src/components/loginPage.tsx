@@ -46,7 +46,7 @@ const LoginPage = () => {
             })
 
             if(response.status !== 200) {
-                console.log("try again 3");
+                console.log("try again");
                 return
             }
             
@@ -55,9 +55,9 @@ const LoginPage = () => {
             localStorage.setItem(LS_KEY, token.jwt)
             setIsLoggedIn(true)
             setActiveUser(data.username) // få den att sparas efter omladdning av sidan.? 
-            console.log("detta är activeUser: ",activeUser);
             
-            // console.log("LocalStorage och store är uppdaterade", token.jwt);
+            
+           
             
             
             
