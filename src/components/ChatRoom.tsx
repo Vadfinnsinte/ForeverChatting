@@ -6,6 +6,9 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { RoomMessage } from "../data/models/RoomMessages";
 import { getActiveUser } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
+import { getAllUsers } from "../functions/getAllUsers";
+import { FaUserAlt } from "react-icons/fa";
+
 
 
 const ChatRoom = () => {
@@ -16,6 +19,7 @@ const ChatRoom = () => {
     const messageDivRef = useRef<HTMLDivElement>(null)
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const activeUser = useVariableStore(state => state.activeUser)
+    const [userImages, setUserImages] = useState<Record<string, string>>({})
     const navigate = useNavigate()
     
     const handleGet = async () => {
@@ -30,7 +34,7 @@ const ChatRoom = () => {
             
         }
         const roomMessages = await getAllRoomMessages()
-        
+        const users = await getAllUsers()
         // if(activeUserName) {
         //     setActiveUser(activeUserName)
         // }
@@ -40,11 +44,22 @@ const ChatRoom = () => {
             setSortedMessages(matchingMessages)
             scrollToBottom()
             
+            if (users) {
+                const images = users.reduce((acc, user) => {
+                    if(user.username) {
+
+                          acc[user.username] = user.image || ''
+                    }
+                    return acc;
+                }, {} as Record<string, string>);
+                setUserImages(images);
+            }
+            
         }
     }
     const handleSendMessage = async () => {
         
-     
+        
         if(messageInput === ""){
             return
         }
@@ -55,7 +70,7 @@ const ChatRoom = () => {
             date: new Date()
         }
         try {
-        
+            
             
             const data = message
             const response = await fetch('/api/room-messages/room', {
@@ -86,11 +101,15 @@ const ChatRoom = () => {
     const handleback = () => {
         navigate("/chatrooms")
     }
-
+    
     const scrollToBottom = () => {
         if (messageDivRef.current) {
             messageDivRef.current.scrollTop = messageDivRef.current.scrollHeight; 
         }
+    };
+    const getUserImage = (senderName: string): string | undefined => {
+        return userImages[senderName] 
+        
     };
     useEffect(() => {
         handleGet()
@@ -107,7 +126,19 @@ const ChatRoom = () => {
         {sortedMessages && sortedMessages?.length > 0 ? sortedMessages.map((message ) => (
             <section key={message._id} className="chat-page">
             <div  className="senderInformation">
+            <div className="pic-name-div">
+            {getUserImage(message.senderName) ? (
+                <img
+                className="profile-pic"
+                src={getUserImage(message.senderName)}
+                alt={`${message.senderName}'s profile`}
+                />
+            ) : (
+                <FaUserAlt className="profile-pic" />
+            )}
+            
             <p className="p-username">{message.senderName}</p>
+            </div>
             <p className="date">{new Date(message.date).toLocaleString()}</p>
             </div>
             <p className="p-message" >{message.messageText}</p>

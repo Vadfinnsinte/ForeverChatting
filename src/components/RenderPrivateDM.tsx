@@ -6,6 +6,8 @@ import Header from "./Header";
 import { getDmMathingUser } from "../functions/getDmUserNames";
 import { getActiveUser } from "../functions/getAllRooms";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { getAllUsers } from "../functions/getAllUsers";
+import { User } from "../data/models/User";
 
 
 
@@ -15,14 +17,18 @@ const RenderPrivateDM = () => {
     const[ sortedDms, setSortedDms] = useState<DM[] | null>(null) 
     const [messageInput, setMessageInput] = useState("")
     const setActiveUser = useVariableStore(state => state.setActiveUser)
+    const [senderPicture, setSenderPicture] = useState<User |string>("")
+    const [activePicture, setActivePicture] = useState<User |string>("")
     const activeUser = useVariableStore(state => state.activeUser)
     const messageDivRef = useRef<HTMLDivElement>(null)
+    
     const navigate = useNavigate()
 
 
     const handleGet = async () => {
         const activeusername = await getActiveUser()
         const dmObjects = await getDmMathingUser()
+        const users = await getAllUsers()
     
         if(activeusername){
             setActiveUser(activeusername)
@@ -34,6 +40,16 @@ const RenderPrivateDM = () => {
             (dm.senderName === name && dm.reciverName === activeusername))
             
             const sortedDms = matchingDms.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+            if(users) {
+                const pictureSender = users.find(sender => sender.username === name)
+                const pictureActive = users.find(active => active.username === activeusername)
+                if(pictureActive) {
+                    setActivePicture(pictureActive)
+                }
+                if(pictureSender) {
+                    setSenderPicture(pictureSender)
+                }
+            }
             setSortedDms(sortedDms)
             scrollToBottom()
         }
@@ -111,7 +127,13 @@ const RenderPrivateDM = () => {
         {sortedDms? sortedDms.map((dm) => (
             <section key={dm._id} className="chat-page">
             <div  className="senderInformation">
+                <div className="pic-name-div">
+            <img className="profile-pic" src={dm.senderName === activeUser   ? typeof activePicture === "object" && activePicture.image ? activePicture.image : undefined
+            : typeof senderPicture === "object" && senderPicture.image ? senderPicture.image : undefined}/>
+
                 <p className="p-username">{dm.senderName}</p>
+
+                </div>
                 <p className="date">{new Date(dm.date).toLocaleString()}</p>
                 {/* <img />
                 <p>username</p>

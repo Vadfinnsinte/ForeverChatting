@@ -1,5 +1,5 @@
 export interface RoomMessage {
-    senderName?: string;
+    senderName: string;
     // guest: string;
     messageText: string;
     roomName: string;

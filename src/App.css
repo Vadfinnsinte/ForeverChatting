@@ -175,7 +175,7 @@ main {
 
 }
 .chat-page {
-    padding: 0.2em 2em;
+    padding: 0.2em 1em;
     border-bottom: 1px solid #2F2C2C;
     color: var(--text-color);
 
@@ -187,9 +187,14 @@ main {
         .p-username {
             color: #7A7FE0;
             margin-top: 0.2rem;
+            margin-left: 0.3em;
             margin-bottom: 0;
         }
         
+}
+.pic-name-div {
+    display: flex;
+
 }
 .message-div {
     height: 24rem;
@@ -216,9 +221,10 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 0;
 
         .date {
-            margin-top: 0.3rem;
+            margin-top: 0.45rem;
             font-size: 11px;
             color: var(--accent-color)
         }
@@ -242,4 +248,14 @@ main {
     position: absolute;
     margin: 1rem 0 0 1rem;
 
+}
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    background-color: var(--background-color);
+    
 }
