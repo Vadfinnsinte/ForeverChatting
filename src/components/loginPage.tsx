@@ -15,11 +15,10 @@ const LoginPage = () => {
     const [password, setPasswordInput] = useState<string>("")
  
     
-    const {setIsLoggedIn, isLoggedIn, setActiveUser, activeUser} = useVariableStore(useShallow((state) => ({
+    const {setIsLoggedIn, isLoggedIn, setActiveUser} = useVariableStore(useShallow((state) => ({
         setIsLoggedIn: state.setIsLoggedIn,
         isLoggedIn: state.isLoggedIn,
-        setActiveUser: state.setActiveUser,
-        activeUser: state.activeUser
+        setActiveUser: state.setActiveUser
     })))
     
     const handleGetUser = async () => {
@@ -68,6 +67,7 @@ const LoginPage = () => {
             
         }
     } // handleLogin
+
     useEffect(() => {
         handleGetUser();
       }, [handleGetUser]);
