@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate  } from "react-router-dom"
+import { Navigate, useNavigate  } from "react-router-dom"
 import { useVariableStore } from "../data/store"
 import { useShallow } from "zustand/react/shallow"
 import { NavLink } from "react-router-dom"
@@ -20,6 +20,7 @@ const LoginPage = () => {
         isLoggedIn: state.isLoggedIn,
         setActiveUser: state.setActiveUser
     })))
+    const navigate = useNavigate()
     
     const handleGetUser = async () => {
         const loggedIn = await getActiveUser()
@@ -55,13 +56,6 @@ const LoginPage = () => {
             setIsLoggedIn(true)
             setActiveUser(data.username) // få den att sparas efter omladdning av sidan.? 
             
-            
-           
-            
-            
-            
-            
-            
         }catch (error) {
             console.log("Try again later", error);
             
@@ -74,6 +68,9 @@ const LoginPage = () => {
     
     if(isLoggedIn) {
         return <Navigate to="/chatrooms" replace/>
+    }
+    const handleCreateUser = () => {
+        navigate("/new-user")
     }
 
     
@@ -92,7 +89,7 @@ const LoginPage = () => {
         <button onClick={handleLogin} className="login-btn button" >Login</button>
         </div>
         <NavLink to="/chatrooms-guest" className="navlink">Continue as guest</NavLink>
-        <button className="create-user-btn button">Create user</button>
+        <button onClick={handleCreateUser} className="create-user-btn button">Create user</button>
         </main>
         </>
     )
