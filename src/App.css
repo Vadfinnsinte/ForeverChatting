@@ -289,3 +289,11 @@ main {
 .optional {
     margin-top: 1rem;
 }
+.create-box {
+    margin-top: 1rem;
+}
+.h3-create {
+    text-align: center;
+    color: var(--accent-color);
+    margin-top: 3rem;
+}

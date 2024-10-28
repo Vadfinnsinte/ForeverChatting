@@ -2,6 +2,7 @@ import { useState } from "react"
 import { createUser } from "../functions/createUser"
 import { User } from "../data/models/User"
 import { useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 // import { NavLink } from "react-router-dom"
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
@@ -82,13 +83,17 @@ const NewUser = () => {
     
     
     return (
+        <>
+        <header className='header'>
+        <h1>ForeverChat</h1>
         
+        </header>
         <main>
-        <h3>New User</h3>
+        <h3 className="h3-create"> Create New User</h3>
         
  {  !isCreated ?     
         (  
-        <div className="login-box">
+        <div className="login-box create-box">
         <input onChange={(e) => setUser({ ...user, username: e.target.value })} value={user.username} className="input" placeholder="Username*"/>
         <input onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} className="input" placeholder="Password*"/>
         
@@ -105,7 +110,9 @@ const NewUser = () => {
                 <button onClick={handleLogin}>Click here to login</button>
             </div>
         ) } 
+             <NavLink to="/" className="navlink">Go back to login</NavLink>
         </main>
+        </>
     )
 }
 
