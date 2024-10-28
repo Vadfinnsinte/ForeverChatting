@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { DM } from "../data/models/DM";
 import Header from "./Header";
 import { getDmMathingUser } from "../functions/getDmUserNames";
-import { getActiveUser } from "../functions/getAllRooms";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { getAllUsers } from "../functions/getAllUsers";
 import { User } from "../data/models/User";
+import { getActiveUser } from "../functions/getActiveUser";
 
 
 

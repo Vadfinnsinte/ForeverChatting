@@ -1,10 +1,11 @@
 
 import { useNavigate  } from "react-router-dom"
-import { getActiveUser, getAllRooms } from "../functions/getAllRooms.js";
+import {  getAllRooms } from "../functions/getAllRooms.js";
 import { useVariableStore } from "../data/store.js";
 import { useCallback, useEffect } from "react";
 import Header from "./Header.js";
 import RenderDmNames from "./RenderDmNames.js";
+import { getActiveUser } from "../functions/getActiveUser.js";
 
 
 

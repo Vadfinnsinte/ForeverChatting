@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import { Navigate  } from "react-router-dom"
 import { useVariableStore } from "../data/store"
 import { useShallow } from "zustand/react/shallow"
-import { getActiveUser } from "../functions/getAllRooms"
 import { NavLink } from "react-router-dom"
+import { getActiveUser } from "../functions/getActiveUser"
 
 
 const LS_KEY = 'JWT-DEMO--TOKEN'

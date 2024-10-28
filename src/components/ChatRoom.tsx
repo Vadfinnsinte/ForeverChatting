@@ -4,10 +4,10 @@ import { getAllRoomMessages } from "../functions/getAllRoomMessages";
 import Header from "./Header";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { RoomMessage } from "../data/models/RoomMessages";
-import { getActiveUser } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
 import { getAllUsers } from "../functions/getAllUsers";
 import { FaUserAlt } from "react-icons/fa";
+import { getActiveUser } from "../functions/getActiveUser";
 
 
 

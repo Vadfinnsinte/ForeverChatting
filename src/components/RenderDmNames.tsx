@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { getDmMathingUser } from "../functions/getDmUserNames"
 import { useVariableStore } from "../data/store"
 import { useNavigate } from "react-router-dom"
-import { getActiveUser } from "../functions/getAllRooms"
 import { RiChatNewLine } from "react-icons/ri";
 import { MdClose } from "react-icons/md";
 import { searchUsers } from "../functions/searchUsers"
 import { User } from "../data/models/User"
 import { FaUserAlt } from "react-icons/fa";
+import { getActiveUser } from "../functions/getActiveUser";
 
 
 // const LS_KEY = 'JWT-DEMO--TOKEN'
