@@ -5,4 +5,5 @@ export interface User {
     image?: string;
     flair?: string;
     dateOfCreation: Date;
+    _id: string;
 }

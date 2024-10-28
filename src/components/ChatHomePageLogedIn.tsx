@@ -51,8 +51,7 @@ const allRooms = useVariableStore((state) => state.allRooms);
     return (
         <>
             <Header/> 
-		
-
+	
          <main>
              <div className="chat-room-div">
                 <h3>Chat-Rooms</h3>

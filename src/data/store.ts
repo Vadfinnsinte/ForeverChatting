@@ -13,6 +13,10 @@ interface VariableStore {
     setDmObjects: (dms: DM[]) => void
     
 }
+// setUserThenNavigate: (user, callback) => {
+//     // set user
+//     callback()
+//   }
 
 const useVariableStore = create<VariableStore>((set) => ({
     isLoggedIn: false,
