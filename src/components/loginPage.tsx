@@ -13,7 +13,7 @@ const LoginPage = () => {
     
     const [username, setUsernameInput] = useState<string>("")
     const [password, setPasswordInput] = useState<string>("")
- 
+    
     
     const {setIsLoggedIn, isLoggedIn, setActiveUser} = useVariableStore(useShallow((state) => ({
         setIsLoggedIn: state.setIsLoggedIn,
@@ -27,7 +27,7 @@ const LoginPage = () => {
         if(loggedIn) {
             setIsLoggedIn(true)
         }
-    
+        
     }
     
     async function handleLogin  () {
@@ -44,7 +44,7 @@ const LoginPage = () => {
                 body: JSON.stringify( data )
                 
             })
-
+            
             if(response.status !== 200) {
                 console.log("try again");
                 return
@@ -61,10 +61,10 @@ const LoginPage = () => {
             
         }
     } // handleLogin
-
+    
     useEffect(() => {
         handleGetUser();
-      }, [handleGetUser]);
+    }, [handleGetUser]);
     
     if(isLoggedIn) {
         return <Navigate to="/chatrooms" replace/>
@@ -72,7 +72,7 @@ const LoginPage = () => {
     const handleCreateUser = () => {
         navigate("/new-user")
     }
-
+    
     
     return (
         <>
@@ -82,14 +82,14 @@ const LoginPage = () => {
         </header>
         
         <main>
-        <div className="login-box">
-        <h2>Login:</h2>
-        <input onChange={(e) => setUsernameInput(e.target.value)} className="input" type="text" placeholder="Username"></input>
-        <input onChange={(e) => setPasswordInput(e.target.value)} className="input" type="text" placeholder="Password"></input>
-        <button onClick={handleLogin} className="login-btn button" >Login</button>
-        </div>
-        <NavLink to="/chatrooms-guest" className="navlink">Continue as guest</NavLink>
-        <button onClick={handleCreateUser} className="create-user-btn button">Create user</button>
+             <div className="login-box">
+                <h2>Login:</h2>
+                <input onChange={(e) => setUsernameInput(e.target.value)} className="input" type="text" placeholder="Username"></input>
+                <input onChange={(e) => setPasswordInput(e.target.value)} className="input" type="text" placeholder="Password"></input>
+                <button onClick={handleLogin} className="login-btn button" >Login</button>
+            </div>
+            <NavLink to="/chatrooms-guest" className="navlink">Continue as guest</NavLink>
+            <button onClick={handleCreateUser} className="create-user-btn button">Create user</button>
         </main>
         </>
     )

@@ -10,6 +10,7 @@ export async function insertDM(DM: DM) : Promise<ObjectId | null>{
     
     
     try {
+        
         x = await connectToDatabase<DMDocument>("dms")
     
         const result: InsertOneResult<DM> = await x.collection.insertOne(DM as DMDocument)

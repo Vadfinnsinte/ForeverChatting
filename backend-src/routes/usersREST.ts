@@ -6,6 +6,9 @@ import { searchUser } from "../mongoDB-src/users/searchUsers.js";
 import { getAllUsers } from "../mongoDB-src/users/getAllUsers.js";
 import {validateLogin} from "../validation/validateLogin.js"
 import { Payload } from "./dmREST.js";
+import { isValidUser } from "../validation/validateUser.js";
+import { insertUser } from "../mongoDB-src/users/insertUser.js";
+
 
 
 export const router: Router = express.Router();
@@ -112,5 +115,22 @@ router.get("/activeuser", async (req: Request, res: Response) => {
     res.sendStatus(400)
   }
   
+})
+router.post("/new-user", async (req:Request, res:Response) => {
+
+  const newUser: User = req.body
+  const users = await getAllUsers()
+  const usernameAvailability = users.find( user => user.username === newUser.username)
   
+  console.log(usernameAvailability);
+  
+  if(isValidUser(newUser) && usernameAvailability === undefined ) {
+    console.log("inne i if Valid User");
+    await insertUser(newUser)
+    res.sendStatus(201)
+  }
+  else {
+    res.sendStatus(400)
+  }
+
 })
