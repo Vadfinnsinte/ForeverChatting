@@ -8,6 +8,7 @@ import { searchUsers } from "../functions/searchUsers"
 import { User } from "../data/models/User"
 import { FaUserAlt } from "react-icons/fa";
 import { getActiveUser } from "../functions/getActiveUser";
+import { getAllUsers } from "../functions/getAllUsers";
 
 
 // const LS_KEY = 'JWT-DEMO--TOKEN'
@@ -16,6 +17,7 @@ const RenderDmNames = () => {
     const [uniqueNames, setUniqueNames] = useState<string[]>([])
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [matchingUsers, setMatchingUsers] = useState<User[]>([])
+    const [allUsers, setAllUsers] = useState<User[]>([])
     // const [query, setQuery] = useState<string>("")
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const setDmObjects = useVariableStore(state => state.setDmObjects)
@@ -26,6 +28,11 @@ const RenderDmNames = () => {
     const handleGet = async () => {
         const activeusername = await getActiveUser()
         const matchingdm = await getDmMathingUser()
+        const users = await getAllUsers()
+        if(users) {
+            setAllUsers(users)
+            setMatchingUsers(allUsers)
+        }
         if(activeusername){
             setActiveUser(activeusername)
             
@@ -51,7 +58,7 @@ const RenderDmNames = () => {
     
     // setQuery(value)
     if(value === "") {
-        setMatchingUsers([])
+        setMatchingUsers(allUsers)
         return
     }else {
         const response = await searchUsers(value)
@@ -85,7 +92,7 @@ const RenderDmNames = () => {
             {isSearching && 
             <div className="search-user">
                 <MdClose onClick={() => setIsSearching(false)} className="close-icon" />
-                <input type="text" placeholder="search user" onChange={(e) => handleSearchUser(e)}  />
+                <input className="search-input" type="text" placeholder="search user" onChange={(e) => handleSearchUser(e)}  />
                 { matchingUsers.map( user => (
                     <div key={user._id} className="search-div"> 
                         {user.image ? (<img className="profile-pic" src={user.image} />) : (
