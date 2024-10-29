@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getActiveUser } from "../functions/getActiveUser"
 import { searchUsers } from "../functions/searchUsers"
 import { User } from "../data/models/User"
-
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
 const [user, setUser] = useState<User| null>(null)
@@ -26,9 +26,9 @@ const [user, setUser] = useState<User| null>(null)
         <h1 className="FC">FC</h1>
         <div className="profile-div">
         <div className="user-header">
-            <img className="header-profile-pic" src={user?.image}/>
+            {user?.image ? (<img className="header-profile-pic" src={user?.image}/>) : (  <FaUserAlt className="header-profile-pic icon" />)}
         </div>
-            <p className="settings">⚙️</p>
+            <p  className="settings">⚙️</p>
             <p className="username-header">{user?.username}</p>
 
         </div>

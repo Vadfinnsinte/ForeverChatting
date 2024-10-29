@@ -78,6 +78,10 @@ body {
 .header-profile-pic  {
     object-fit: cover;
 }
+.icon {
+    margin-top: 0.7rem;
+    font-size: 30px;
+}
 main {
     display: flex;
     flex-direction: column;
