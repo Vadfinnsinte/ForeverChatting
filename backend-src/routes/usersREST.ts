@@ -1,13 +1,14 @@
 import express, { Request, Response, Router } from "express";
-import { WithId } from "mongodb";
+import { ObjectId, WithId } from "mongodb";
 import jwt from 'jsonwebtoken'
 import { User } from "../models/User.js";
 import { searchUser } from "../mongoDB-src/users/searchUsers.js";
 import { getAllUsers } from "../mongoDB-src/users/getAllUsers.js";
 import {validateLogin} from "../validation/validateLogin.js"
 import { Payload } from "./dmREST.js";
-import { isValidUser } from "../validation/validateUser.js";
+import { isValidChangeUser, isValidUser } from "../validation/validateUser.js";
 import { insertUser } from "../mongoDB-src/users/insertUser.js";
+import { updateUser } from "../mongoDB-src/users/updateUser.js";
 
 
 
@@ -130,4 +131,27 @@ router.post("/new-user", async (req:Request, res:Response) => {
     res.sendStatus(400)
   }
 
+})
+
+router.put("/change-user/:id", async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id 
+
+ if (!ObjectId.isValid(id)) {
+    res.sendStatus(400)
+  }
+  const objectId: ObjectId = new ObjectId(id);
+  const updatedFields: User = req.body;
+  // console.log(req.body, "objId: ", objectId);
+
+  if(isValidChangeUser(updatedFields)) {
+    const result = await updateUser(objectId, updatedFields); 
+    if(result?.matchedCount === 0) {
+      res.sendStatus(404)
+    }else {
+      res.sendStatus(204)
+    }
+  } else{
+    res.sendStatus(400)
+  }
+  
 })

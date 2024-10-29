@@ -378,7 +378,9 @@ main {
 }
 .user-div {
     place-self: center;
-        p {
+        .p-user {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
             color: var(--accent-color);
             font-size: 20px;
             /* text-decoration: underline; */
@@ -394,4 +396,16 @@ main {
     background-color: #590B08;
     color: whitesmoke;
     grid-row: 7;
+}
+.flair {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+.input-label {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }

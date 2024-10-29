@@ -7,3 +7,8 @@ export interface User {
     dateOfCreation: Date;
     _id?: string;
 }
+
+export interface TempUser {
+    image?: string;
+    flair?: string;
+}
