@@ -32,7 +32,7 @@ router.get("/", async(_, res: Response<WithId<User>[]>) => {
   
 })
 router.post('/login', async (req: Request, res: Response) => {
-  console.log("entered POST");
+  // console.log("entered POST");
   
   if( !process.env.SECRET ) {
     res.sendStatus(500)
@@ -101,12 +101,15 @@ router.get("/activeuser", async (req: Request, res: Response) => {
   try {
     payload = verify(token, process.env.SECRET) as Payload
     
+    
+    
   } catch(error) {
     res.sendStatus(400) 
     return
   }
   
   let userName: string = payload.userId
+
   
   if(userName) {
     res.send(userName)

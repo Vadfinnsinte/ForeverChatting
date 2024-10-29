@@ -9,7 +9,7 @@ import { getActiveUser } from "../functions/getActiveUser.js";
 
 
 
-const LS_KEY = 'JWT-DEMO--TOKEN'
+// const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
 const ChatHomePageLogedIn = () => {
@@ -17,15 +17,15 @@ const ChatHomePageLogedIn = () => {
 
 const allRooms = useVariableStore((state) => state.allRooms);
   const setAllRooms = useVariableStore((state) => state.setAllRooms);
-  const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
+  // const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
 
   const navigate = useNavigate()
 
-	function logoutFunction() {
-      setIsLoggedIn(false) // håll syncad med LS_key. 
-			localStorage.removeItem(LS_KEY)
-			navigate("/")
-	}
+	// function logoutFunction() {
+  //     setIsLoggedIn(false) // håll syncad med LS_key. 
+	// 		localStorage.removeItem(LS_KEY)
+	// 		navigate("/")
+	// }
 
     const handelGet = useCallback(async () => {
 
@@ -62,7 +62,7 @@ const allRooms = useVariableStore((state) => state.allRooms);
 
              </div>
                 <RenderDmNames/> 
-                <button className="button" onClick={logoutFunction}>Log out</button>
+             {/* <button className="button" onClick={logoutFunction}>Log out</button>    */}
             </main>
 
 

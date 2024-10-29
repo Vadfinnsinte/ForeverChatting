@@ -98,8 +98,8 @@ const ChatRoom = () => {
             scrollToBottom()  
         }
     }
-    const handleback = () => {
-        navigate("/chatrooms")
+    const handleback = () => { 
+            navigate("/chatrooms")
     }
     
     const scrollToBottom = () => {

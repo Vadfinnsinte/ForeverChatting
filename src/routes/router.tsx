@@ -6,6 +6,7 @@ import RenderPrivateDM from "../components/RenderPrivateDM.js"
 import ChatroomsGuest from "../components/ChatroomsGuest.js"
 import ChatRoom from "../components/ChatRoom.js"
 import NewUser from "../components/NewUser.js"
+import Settings from "../components/Settings.js"
 
 
 const router = createHashRouter([
@@ -29,6 +30,11 @@ const router = createHashRouter([
             {
                 path: "/chat-room/:room",
                 element: <ChatRoom />,
+
+            },
+            {
+                path: "/settings",
+                element: <Settings />,
 
             },
             {

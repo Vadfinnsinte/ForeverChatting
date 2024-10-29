@@ -334,3 +334,64 @@ main {
     padding: 0.2rem;
     margin-bottom: 0.5rem;
 }
+.main-settings {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.settings-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex; 
+    place-self: center;
+    background-color: var(--background-color);
+    margin-bottom: 0.3rem;
+}
+.settings-div {
+    margin-top: 1rem;
+    place-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+
+        h3 {
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 22px;
+        }
+
+}
+.change-info-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-self: center;
+    gap: 2rem;
+
+        h4 {
+            margin: 0;
+            text-align: center;
+            color: var(--accent-color);
+        }
+  
+    
+}
+.user-div {
+    place-self: center;
+        p {
+            color: var(--accent-color);
+            font-size: 20px;
+            /* text-decoration: underline; */
+        }
+}
+.logout-btn{
+    background-color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.delete-btn {
+    width: 10rem;
+    font-size: 17px;
+    background-color: #590B08;
+    color: whitesmoke;
+    grid-row: 7;
+}

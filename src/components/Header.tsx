@@ -3,19 +3,27 @@ import { getActiveUser } from "../functions/getActiveUser"
 import { searchUsers } from "../functions/searchUsers"
 import { User } from "../data/models/User"
 import { FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useVariableStore } from "../data/store";
 
 const Header = () => {
-const [user, setUser] = useState<User| null>(null)
+// const [user, setUser] = useState<User| null>(null)
+const userObject = useVariableStore(state => state.userObject)
+const setUserObject = useVariableStore(state => state.setUserObject)
 
+const navigate = useNavigate()
     const handleGetUser = async () => {
         const activeUsername = await getActiveUser()
         if(activeUsername) {
             const users = await searchUsers(activeUsername)
             if( users && users.length > 0) {
-                setUser(users[0])
+                setUserObject(users[0])
             }
             
         }
+    }
+    const handleSettings = () => {
+        navigate("/settings")
     }
     useEffect(() => {
         handleGetUser()
@@ -25,11 +33,11 @@ const [user, setUser] = useState<User| null>(null)
         <header className="header-chat">
         <h1 className="FC">FC</h1>
         <div className="profile-div">
-        <div className="user-header">
-            {user?.image ? (<img className="header-profile-pic" src={user?.image}/>) : (  <FaUserAlt className="header-profile-pic icon" />)}
+        <div className="user-header" onClick={handleSettings}>
+            {userObject?.image ? (<img className="header-profile-pic" src={userObject?.image}/>) : (  <FaUserAlt className="header-profile-pic icon" />)}
         </div>
-            <p  className="settings">⚙️</p>
-            <p className="username-header">{user?.username}</p>
+            <p onClick={handleSettings} className="settings">⚙️</p>
+            <p className="username-header">{userObject?.username}</p>
 
         </div>
     </header> 
