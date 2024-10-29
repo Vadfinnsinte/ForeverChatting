@@ -6,14 +6,10 @@ import './App.css'
 function App() {
 
 
-  // hämta användarens profil-info. 
-          // if profileState == null 
-        // fetch username. 
-        // https://react.dev/reference/react/Suspense 
 
   return (
     <>
-    {/* <Suspense fallback={<div>Loading user...</div>}/> */}
+
     <Outlet/>
     </>
   

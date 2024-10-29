@@ -11,14 +11,12 @@ import { getActiveUser } from "../functions/getActiveUser";
 import { getAllUsers } from "../functions/getAllUsers";
 
 
-// const LS_KEY = 'JWT-DEMO--TOKEN'
 
 const RenderDmNames = () => {
     const [uniqueNames, setUniqueNames] = useState<string[]>([])
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [matchingUsers, setMatchingUsers] = useState<User[]>([])
     const [allUsers, setAllUsers] = useState<User[]>([])
-    // const [query, setQuery] = useState<string>("")
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const setDmObjects = useVariableStore(state => state.setDmObjects)
     const navigate = useNavigate()
@@ -54,7 +52,6 @@ const RenderDmNames = () => {
     }
    const handleSearchUser = async (e: React.ChangeEvent<HTMLInputElement> ) => {
     const value = e.target.value.trim().toLowerCase()
-    console.log(value);
     
     // setQuery(value)
     if(value === "") {
@@ -105,8 +102,6 @@ const RenderDmNames = () => {
 
             </div>
             }
-        {/* // Gör en div där search visas.
-        // ha en state som haterar synligheten, och ändra den på onClick i chat-icon */}
 
         </div>
         {uniqueNames.map((name, index) => (

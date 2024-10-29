@@ -35,32 +35,6 @@ async function getAllUsers(): Promise<WithId<User>[]> {
 
     }
 }
-// async function getOneUsers(username, password): Promise<ObjectId| null> {
-    
-//     try {
-        
-//         x = await connectToDatabase<UserDocument>("users")
-        
 
-//         const found: WithId<User> | null = await x.collection.findOne({ username, password })
-        
-        
-//         if(!found) {
-//             console.log( "No users awailable today :/");
-//             return null
-//         }
-//         return found._id
-        
-//     }catch (error) {
-//         console.error('Error fetching users', error);
-//         throw error;
-//     } finally {
-//         if(x) {
-//             await x.client.close()
-
-//         }
-
-//     }
-// }
 
 export {getAllUsers}

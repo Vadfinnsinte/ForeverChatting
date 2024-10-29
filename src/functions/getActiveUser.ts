@@ -2,7 +2,7 @@ const LS_KEY = 'JWT-DEMO--TOKEN'
 
 export const getActiveUser = async () => {
     try {
-    // console.log("entered getactiveUser");
+    
       const token = localStorage.getItem(LS_KEY);
     
       if(!token) {
@@ -22,7 +22,7 @@ export const getActiveUser = async () => {
          
       }
       const username = await response.text()
-    //   console.log("from getactiveUser.TSX: ", username);
+    
       
       if(username !== null) {
 

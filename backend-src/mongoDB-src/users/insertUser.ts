@@ -8,7 +8,6 @@ let x: ClientType<UserDocument>
 
 export async function insertUser(user: User) : Promise<ObjectId | null>{
     
-    console.log("inne i insert User");
     
     try {
         x = await connectToDatabase<UserDocument>("users")

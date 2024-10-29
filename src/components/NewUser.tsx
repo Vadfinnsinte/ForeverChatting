@@ -3,7 +3,7 @@ import { createUser } from "../functions/createUser"
 import { User } from "../data/models/User"
 import { useNavigate } from "react-router-dom"
 import { NavLink } from "react-router-dom"
-// import { NavLink } from "react-router-dom"
+
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
 const NewUser = () => {
@@ -43,10 +43,9 @@ const NewUser = () => {
                 }
             )
         }
-        // if (response) {
+
             setIsCreated(true)
 
-        // }
             try {
                 const username = user.username
                 const password  = user.password

@@ -3,7 +3,6 @@ import { User } from "../data/models/User";
 export const createUser = async (user: User) => {
 
     try {
-        console.log("går in i try");
         
         const data = user
         const response = await fetch('/api/users/new-user', {
@@ -16,7 +15,6 @@ export const createUser = async (user: User) => {
         })
     
         if(response.status !== 201) {
-            console.log("try again 3")
             return response
         }
         

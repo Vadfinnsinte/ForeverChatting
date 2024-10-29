@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react"
 import { getActiveUser } from "../functions/getActiveUser"
 import { searchUsers } from "../functions/searchUsers"
-import { User } from "../data/models/User"
 import { FaUserAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useVariableStore } from "../data/store";
 
 const Header = () => {
-// const [user, setUser] = useState<User| null>(null)
 const userObject = useVariableStore(state => state.userObject)
 const setUserObject = useVariableStore(state => state.setUserObject)
 

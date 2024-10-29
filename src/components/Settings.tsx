@@ -15,6 +15,7 @@ const Settings = () => {
               localStorage.removeItem(LS_KEY)
               navigate("/")
       }
+      
     return (
         <main className="main-settings">
             <div className="settings-div">

@@ -32,17 +32,15 @@ router.get("/", async(_, res: Response<WithId<User>[]>) => {
   
 })
 router.post('/login', async (req: Request, res: Response) => {
-  // console.log("entered POST");
+  
   
   if( !process.env.SECRET ) {
     res.sendStatus(500)
     return
   }
   
-  console.log('Body är: ', req.body)
   const userId = await validateLogin(req.body.username, req.body.password)
   
-  console.log('user id: ', userId)
   
   if( !userId ) {
     res.status(401).send({
@@ -62,7 +60,6 @@ router.post('/login', async (req: Request, res: Response) => {
 router.get("/search",async (req: Request , res: Response<WithId<User>[] | Message>):Promise<void> => {
   
   const searchString: string | undefined = req.query.q as string;
-  console.log(searchString);
   
   if (!searchString) {
     res.sendStatus(400);
@@ -125,10 +122,7 @@ router.post("/new-user", async (req:Request, res:Response) => {
   const users = await getAllUsers()
   const usernameAvailability = users.find( user => user.username === newUser.username)
   
-  console.log(usernameAvailability);
-  
   if(isValidUser(newUser) && usernameAvailability === undefined ) {
-    console.log("inne i if Valid User");
     await insertUser(newUser)
     res.sendStatus(201)
   }

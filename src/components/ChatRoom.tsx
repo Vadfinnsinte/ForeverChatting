@@ -35,9 +35,6 @@ const ChatRoom = () => {
         }
         const roomMessages = await getAllRoomMessages()
         const users = await getAllUsers()
-        // if(activeUserName) {
-        //     setActiveUser(activeUserName)
-        // }
         
         if (roomMessages) {
             const matchingMessages = roomMessages.filter(message => message.roomName === room).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())

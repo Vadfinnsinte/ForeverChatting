@@ -13,7 +13,6 @@ import { getActiveUser } from "../functions/getActiveUser";
 
 const RenderPrivateDM = () => {
     const { name } = useParams<{ name: string }>()
-    // console.log(name);
     const[ sortedDms, setSortedDms] = useState<DM[] | null>(null) 
     const [messageInput, setMessageInput] = useState("")
     const setActiveUser = useVariableStore(state => state.setActiveUser)
@@ -32,9 +31,9 @@ const RenderPrivateDM = () => {
     
         if(activeusername){
             setActiveUser(activeusername)
-            // console.log("activeUser in chat: ", activeusername);
             
-          }
+        }
+
         if(dmObjects){
             const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeusername && dm.reciverName === name) || 
             (dm.senderName === name && dm.reciverName === activeusername))
@@ -56,7 +55,6 @@ const RenderPrivateDM = () => {
        
     }
     const handleSendMessage = async () => {
-        console.log(messageInput);
         if(messageInput === ""){
             return
         }
@@ -67,8 +65,6 @@ const RenderPrivateDM = () => {
             date: new Date()
         }
         try {
-            console.log("går in i try", message);
-            
             const data = message
             const response = await fetch('/api/dm/', {
                 method: 'POST',
@@ -135,9 +131,6 @@ const RenderPrivateDM = () => {
 
                 </div>
                 <p className="date">{new Date(dm.date).toLocaleString()}</p>
-                {/* <img />
-                <p>username</p>
-                <p> time</p> */}
             </div>
             <p className="p-message" >{dm.messageText}</p>
             </section>

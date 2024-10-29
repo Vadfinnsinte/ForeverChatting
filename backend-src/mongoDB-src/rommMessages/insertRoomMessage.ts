@@ -7,8 +7,6 @@ type RoomMDocument = RoomMessage & Document;
 let x: ClientType<RoomMDocument>
 
 export async function insertRoomMessage(message: RoomMessage) : Promise<ObjectId | null>{
-    
-    console.log("inne i instertRoomMessages");
         
     try {
         x = await connectToDatabase<RoomMDocument>("roomMessages")

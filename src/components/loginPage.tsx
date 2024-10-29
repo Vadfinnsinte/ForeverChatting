@@ -8,7 +8,6 @@ import { getActiveUser } from "../functions/getActiveUser"
 
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
-// Lägg till att user sparas som guest!! 
 const LoginPage = () => {
     
     const [username, setUsernameInput] = useState<string>("")
@@ -54,7 +53,7 @@ const LoginPage = () => {
             const token = await response.json()
             localStorage.setItem(LS_KEY, token.jwt)
             setIsLoggedIn(true)
-            setActiveUser(data.username) // få den att sparas efter omladdning av sidan.? 
+            setActiveUser(data.username)
             
         }catch (error) {
             console.log("Try again later", error);

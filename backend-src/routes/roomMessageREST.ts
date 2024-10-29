@@ -22,13 +22,11 @@ router.get("/", async(_, res: Response<WithId<RoomMessage>[]>) => {
 })
 
 router.post('/room', async (req: Request, res: Response) => {
-    console.log("inne i room");
+    
     
     const newMessage: RoomMessage = req.body
     
-    if(isValidRoomMessage(newMessage)){
-        console.log("validation sucess");
-        
+    if(isValidRoomMessage(newMessage)){        
       await insertRoomMessage(newMessage)
       res.sendStatus(201)
     }
