@@ -15,6 +15,7 @@ const Settings = () => {
     const setIsLoggedIn = useVariableStore(state => state.setIsLoggedIn)
     const [imageInput, setImageInput] = useState<string>("")
     const [flairInput, setFlairInput] = useState<string>("")
+    const [isDeleting, setIsDeleting] = useState<boolean>(false)
     const navigate = useNavigate()
 
     const handleGetUser = async () => {
@@ -53,7 +54,8 @@ const Settings = () => {
     }
       
     return (
-        <main className="main-settings">
+        <>
+        <main className={ !isDeleting ? ( "main-settings") : ("main-settings blur") }>
             <div className="settings-div">
         
                 <h3>Settings</h3>
@@ -65,7 +67,7 @@ const Settings = () => {
             </div>
             <button onClick={logoutFunction} className="button logout-btn"> Logout</button>
                 <div className="change-info-div">
-                    <h4>Change: </h4>
+                    <h3>Change: </h3>
                     <div className="input-label">
                     <label>image:</label>
                     <input onChange={(e) => setImageInput(e.target.value)} value={imageInput} type="text" placeholder={userObject?.image} className="input"/>
@@ -77,8 +79,20 @@ const Settings = () => {
                      </div>
                 <button onClick={saveChanges} className="button send-btn" > Spara</button>
              </div>
-            <button className=" button delete-btn">delete account</button>
+            <button onClick={() => setIsDeleting(true)} className=" button delete-btn">delete account</button>
         </main>
+            { isDeleting && <div className="varning-div">
+                <h2 className="varning-h2">VARNING!</h2>
+                <p>Deleting can not be undone!</p>
+                <p>Are you sure you want to proceed?</p>
+                <div className="button-div">
+
+                <button onClick={() => setIsDeleting(false)} className="cancel-btn btn">CANCEL</button>
+                <button className="delete-btn-final btn">DELETE</button>
+
+                </div>
+            </div>}
+            </>
     )
 }
 
