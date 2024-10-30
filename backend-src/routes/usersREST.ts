@@ -9,6 +9,7 @@ import { Payload } from "./dmREST.js";
 import { isValidChangeUser, isValidUser } from "../validation/validateUser.js";
 import { insertUser } from "../mongoDB-src/users/insertUser.js";
 import { updateUser } from "../mongoDB-src/users/updateUser.js";
+import { deleteUser } from "../mongoDB-src/users/deleteUser.js";
 
 
 
@@ -154,4 +155,20 @@ router.put("/change-user/:id", async (req: Request, res: Response): Promise<void
     res.sendStatus(400)
   }
   
+})
+
+router.delete("/delete/:id", async (req: Request, res: Response): Promise<void> => {
+  const id = req.params.id 
+  if(!ObjectId.isValid(id)) {
+    res.sendStatus(400)
+  }
+  const objectId: ObjectId = new ObjectId(id);
+  const result = await deleteUser(objectId);
+
+  if (result?.deletedCount === 0) {
+   res.sendStatus(404)
+  }
+
+  res.sendStatus(204); 
+
 })

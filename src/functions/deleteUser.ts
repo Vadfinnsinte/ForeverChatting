@@ -1,9 +1,51 @@
 
 
 
+
+export const updeteMesageName =  async ( username: string) => {
+
+    try {
+        
+        const data = {username}
+        const changeResponse = await fetch(`/api/room-messages/delete-username`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( data )
+            
+        })
+    
+        if(changeResponse.status !== 204) {
+            return changeResponse
+        }
+        
+    
+    } catch (error) {
+    console.log("try again later", error);
+    
+    }
+
+
+}
+export const deleteUser =  async (id: string) => {
+
+    try {
+        
+        const response = await fetch(`/api/users/delete/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        if(response.status !== 201) {
+            return response
+        }        
+    } catch (error) {
+    console.log("try again later", error);
+    
+    }
+
+
+}
 // skapa en ändra roomMessage och DM i MongoDB och Express. 
-// skapa en delete user i MongoDB och Express. 
-
-
-// För så att funtionen här ändrar roomMesage där reciver eller sender ändars till deleted och tar bort img. 
-// ta bort användaren. 

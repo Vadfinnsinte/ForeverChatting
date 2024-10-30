@@ -5,6 +5,7 @@ import { updateUser } from "../functions/updateUser";
 import { TempUser } from "../data/models/User";
 import { getActiveUser } from "../functions/getActiveUser";
 import { searchUsers } from "../functions/searchUsers";
+import { deleteUser, updeteMesageName } from "../functions/deleteUser";
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
@@ -52,6 +53,13 @@ const Settings = () => {
             await handleGetUser()
         }
     }
+    const handleDelete =  async () => {
+        if(userObject?._id && userObject.username){
+            await deleteUser(userObject?._id)
+            await updeteMesageName(userObject?.username)
+            logoutFunction()
+        }
+    }
       
     return (
         <>
@@ -88,7 +96,7 @@ const Settings = () => {
                 <div className="button-div">
 
                 <button onClick={() => setIsDeleting(false)} className="cancel-btn btn">CANCEL</button>
-                <button className="delete-btn-final btn">DELETE</button>
+                <button onClick={handleDelete} className="delete-btn-final btn">DELETE</button>
 
                 </div>
             </div>}
