@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { getActiveUser } from "../functions/getActiveUser"
 import { searchUsers } from "../functions/searchUsers"
 import { FaUserAlt } from "react-icons/fa";
