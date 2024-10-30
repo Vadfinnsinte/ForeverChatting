@@ -3,6 +3,7 @@ import { getAllRooms } from "../functions/getAllRooms";
 import { useVariableStore } from "../data/store";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
+import { getActiveUser } from "../functions/getActiveUser";
 
 
 const ChatroomsGuest  = () => {
@@ -14,6 +15,10 @@ const ChatroomsGuest  = () => {
 
     const handleGet = async () => {
         setActiveUser("guest")
+        const username = await getActiveUser()
+        if(username) {
+          navigate("/chatrooms")
+        }
         const result = await getAllRooms()
         if (result && result.length > 0) {
             setAllRooms(result);
