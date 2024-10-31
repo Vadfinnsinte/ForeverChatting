@@ -23,7 +23,7 @@ const router = createHashRouter([
                 element: <ChatroomsGuest/>
             },
             {
-                path: "private-dm/:name",
+                path: "private-dm/:name/:id",
                 element: <RenderPrivateDM />,
 
             },

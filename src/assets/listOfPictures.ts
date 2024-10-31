@@ -3,3 +3,6 @@ const listOfPictures = ["https://img-cdn.pixlr.com/image-generator/history/671aa
 ]
 
 export {listOfPictures}
+
+
+// gör en map i newUser och visa bilderna, gör en ocClick som sätter image till bilden.

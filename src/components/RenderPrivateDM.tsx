@@ -12,7 +12,7 @@ import { getActiveUser } from "../functions/getActiveUser";
 
 
 const RenderPrivateDM = () => {
-    const { name } = useParams<{ name: string }>()
+    const { name, id } = useParams<{ name: string, id: string }>()
     const[ sortedDms, setSortedDms] = useState<DM[] | null>(null) 
     const [messageInput, setMessageInput] = useState("")
     const setActiveUser = useVariableStore(state => state.setActiveUser)
@@ -35,9 +35,17 @@ const RenderPrivateDM = () => {
         }
 
         if(dmObjects){
-            const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeusername && dm.reciverName === name) || 
-            (dm.senderName === name && dm.reciverName === activeusername))
-            
+            // const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeusername && dm.reciverName === name) || 
+            // (dm.senderName === name && dm.reciverName === activeusername)) 
+            const matchingDms = dmObjects.filter(dm => {
+                if (name === "deleted") {
+                    return ( (dm.senderName === activeusername && dm.deletedID === id) || 
+                     (dm.deletedID === id && dm.reciverName === activeusername))
+                } else {
+                    return (dm.senderName === activeusername && dm.reciverName === name) || 
+                    (dm.senderName === name && dm.reciverName === activeusername);
+                }
+            });
             const sortedDms = matchingDms.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
             if(users) {
                 const pictureSender = users.find(sender => sender.username === name)

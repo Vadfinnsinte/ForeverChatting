@@ -4,6 +4,8 @@ import { DM } from "../models/DM.js"
 import { isValidDM } from "../validation/validateDM.js";
 import { insertDM } from "../mongoDB-src/DMs/insertDM.js";
 import { getMatchingDmNames } from "../mongoDB-src/DMs/getMatchingDm.js";
+import { updateDM } from "../mongoDB-src/DMs/updateDm.js";
+import { ObjectId } from "mongodb";
 
 const { verify } = jwt
 
@@ -57,4 +59,31 @@ router.get("/matching", async (req: Request, res: Response) => {
     }
     
    
+})
+
+router.put("/change-senders/:id", async (req: Request , res:Response)=> {
+ console.log("PUT: changeSender");
+ 
+  const id = req.params.id
+  const objectId = new ObjectId(id)
+  
+  if(!ObjectId.isValid(id)){
+    res.sendStatus(404)
+  }
+  const {username} = req.body
+  console.log(username);
+  const result = await updateDM(username, objectId)
+ 
+  if(!result) {
+     res.sendStatus(500)
+  }else {
+    const { resultSender, resultReceiver } = result;
+   
+    if (resultSender.matchedCount === 0 && resultReceiver.matchedCount === 0) {
+        res.sendStatus(204); // No content
+    } else {
+        res.sendStatus(200); // Success, change was made
+    }
+
+  }
 })
