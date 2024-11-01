@@ -64,11 +64,7 @@ main {
 
 .color {
     color: var(--accent-color);
-}
-.plus {
-    position: absolute;
-    right: 7rem;
-    top: 5.2rem;
+    
 }
 
 

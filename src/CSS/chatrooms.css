@@ -14,6 +14,9 @@
 .main-chatrooms{
     color: var(--accent-color);
 }
+.center {
+    text-align: center;
+}
 .chat-room-div {
     max-height: 18rem;
     display: flex;
@@ -28,21 +31,29 @@
         .DM-h {
             color: var(--accent-color);
         }
-    
+     
 
 }
+
 .DM-div {
     display: grid;
-    grid-template-columns: 2fr 1fr; 
+    grid-template-columns: 1fr 2fr 1fr; 
      
  } 
 
 .new-chat-icon {
-    
+    /* position: absolute;
+    bottom: 13.6rem;
+    right: 7rem; */
     place-self: center;
-
-    margin-left: 0.3rem;
+    margin-left: 0.5rem;
 }
+.plus {
+    position: absolute;
+    right: 7rem;
+    top: 5.2rem;
+}
+
 
 .search-user {
     position: absolute;
@@ -104,4 +115,37 @@
 
 .main-chat.blur * {
     filter: blur(1px);
+}
+.i {
+    color: var(--text-color);
+}
+
+.chat-room-name {
+    margin: 1.2rem;
+}
+summary {
+    list-style-type: none; 
+    cursor: pointer; 
+    display: none;
+  }
+
+summary::-webkit-details-marker {
+    display: none; 
+  }
+
+.collapse-icon {
+    position: absolute;
+    left: 7rem;
+    top: 5.2rem;
+}
+.collapse-icon.inline {
+    transform: rotate(270deg);
+}
+.collapse-icon-dm {
+    place-self: center;
+    margin-right: 0.5rem;
+
+}
+.collapse-icon-dm.inline {
+    transform: rotate(270deg);
 }

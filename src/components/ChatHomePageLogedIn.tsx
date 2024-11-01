@@ -10,7 +10,7 @@ import { FaPlus } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import { Room } from "../data/models/Room.js";
 import { createNewRoom } from "../functions/createNewRoom.js";
-import { response } from "express";
+import { BiSolidDownArrow } from "react-icons/bi";
 
 // const LS_KEY = 'JWT-DEMO--TOKEN'
 
@@ -23,6 +23,7 @@ const ChatHomePageLogedIn = () => {
   const [addingRoom, setaddingRoom] = useState<boolean>(false)
   const [roomInput, setRoomInput] = useState<string>("")
   const [isLocked, setIsLocked] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(true)
   const navigate = useNavigate()
   
   const handelGet = useCallback(async () => {
@@ -42,6 +43,7 @@ const ChatHomePageLogedIn = () => {
   useEffect(() => {
     handelGet();
   }, [handelGet]);
+
   const handleChat = (room:string) => {
     
     navigate(`/chat-room/${room}`)
@@ -61,6 +63,10 @@ const ChatHomePageLogedIn = () => {
       handelGet()
     }
   }
+  const handleToggle = () =>  {
+    setIsOpen(!isOpen)
+  }
+
   
   return (
     <>
@@ -95,15 +101,23 @@ const ChatHomePageLogedIn = () => {
         </div>
           <button onClick={handleSaveRoom} className="button new-room-btn" >Save</button>
       </div>}
+
     <main className={ !addingRoom ? ( "main-chat") : ("main-chat blur") }>
+    <BiSolidDownArrow  onClick={handleToggle} className={isOpen ?"collapse-icon" : "collapse-icon inline"} />
+    <h3 onClick={handleToggle} className="color center">Chat-Rooms</h3> 
     <div className="chat-room-div">
-    <h3 className="color">Chat-Rooms</h3> 
     <FaPlus className="plus" onClick={handleNewChatRoom}/>
-    { allRooms && allRooms.map(room => (
-      <p onClick={() => handleChat(room.name)} key={room._id}> {room.name}</p>
+    
+    <details open={isOpen}>
+      <summary className="i" >{""}</summary>
+    {allRooms && allRooms.map(room => (
+      <p className="chat-room-name" onClick={() => handleChat(room.name)} key={room._id}> {room.name}</p>
     ))}
+    </details>
+    
     
     </div>
+    {/* <h3 className="DM-h center color ">DM's  </h3> */}
     <RenderDmNames/> 
     </main>
     

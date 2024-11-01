@@ -9,6 +9,7 @@ import { User } from "../data/models/User"
 import { FaUserAlt } from "react-icons/fa";
 import { getActiveUser } from "../functions/getActiveUser";
 import { getAllUsers } from "../functions/getAllUsers";
+import { BiSolidDownArrow } from "react-icons/bi";
 
 interface Deleted {
     id: string;
@@ -20,6 +21,7 @@ const RenderDmNames = () => {
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [matchingUsers, setMatchingUsers] = useState<User[]>([])
     const [allUsers, setAllUsers] = useState<User[]>([])
+    const [isOpen, setIsOpen] = useState<boolean>(false)
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const setDmObjects = useVariableStore(state => state.setDmObjects)
     const navigate = useNavigate()
@@ -64,7 +66,8 @@ const RenderDmNames = () => {
                     }
                 }
             });
-        
+            // console.log(names);
+            
             setUniqueNames(uniqueNames);
             setDmObjects(matchingdm);
         }}
@@ -98,14 +101,20 @@ const RenderDmNames = () => {
     useEffect(() => {
         handleGet()
     },[])
+
+    const handleToggle = () => {
+        setIsOpen(!isOpen)
+    }
     
     return (
         <>
         <div className="chat-room-div">
         
         <div className="DM-div">
-        <h3 className="DM-h">DM's  </h3>
+        <BiSolidDownArrow  onClick={handleToggle} className={isOpen ?"collapse-icon-dm" : "collapse-icon-dm inline"} />
+        <h3 onClick={handleToggle} className="DM-h">DM's  </h3>
         <RiChatNewLine onClick={() => setIsSearching(!isSearching)} className="new-chat-icon" /> 
+           
             {isSearching && 
             <div className="search-user">
                 <MdClose onClick={() => setIsSearching(false)} className="close-icon" />
@@ -124,12 +133,14 @@ const RenderDmNames = () => {
             }
 
         </div>
+        <details open={isOpen}>
+            <summary></summary>
         {uniqueNames.map(({ displayName, id }, index) => (
             <p onClick={() => handlePrivateDM(displayName,id)} key={index}>
              {displayName}
             </p>
 ))}
-        
+        </details>
         </div>
         </>
     )

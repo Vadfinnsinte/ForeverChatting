@@ -37,7 +37,7 @@
 
         h3 {
             text-align: center;
-            color: var(--accent-color);
+            color: var(--text-color);
             font-size: 22px;
         }
 
@@ -51,7 +51,7 @@
         h3 {
             margin: 0;
             text-align: center;
-            color: var(--accent-color);
+            color: var(--text-color);
         }
   
     
@@ -73,7 +73,7 @@
     text-align: center;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: var(--accent-color);
+    color: var(--text-color);
 }
 .input-label {
     margin: 0;
@@ -133,3 +133,6 @@
         }
 }
 
+label {
+    color: var(--text-color);
+}
