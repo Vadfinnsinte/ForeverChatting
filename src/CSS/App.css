@@ -8,6 +8,7 @@
     --input-height: 40px;
     --input-width: 230;
     --font-size-input-btn: 20px;
+    --red-color: #590B08; 
 }
 * {
     box-sizing: border-box;

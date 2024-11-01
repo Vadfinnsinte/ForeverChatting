@@ -1,4 +1,16 @@
 
+:root {
+    --background-color: #464343; 
+    --accent-color: #7A7FE0;
+    --opacity: 79%;
+    --lock-color: #676363; 
+    --text-color: #C3C3C3;
+    --button-height: 30px;
+    --input-height: 40px;
+    --input-width: 230;
+    --font-size-input-btn: 20px;
+    --red-color: #590B08; 
+}
 .chat-page-main {
     display: flex;
         h3{

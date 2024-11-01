@@ -1,3 +1,16 @@
+:root {
+    --background-color: #464343; 
+    --accent-color: #7A7FE0;
+    --opacity: 79%;
+    --lock-color: #676363; 
+    --text-color: #C3C3C3;
+    --button-height: 30px;
+    --input-height: 40px;
+    --input-width: 230;
+    --font-size-input-btn: 20px;
+    --red-color: #590B08; 
+}
+
 .login-box {
     background-color: var(--accent-color);
     display: flex;
@@ -24,4 +37,14 @@
     background-color: var(--accent-color);
     color: var(--background-color);
    
+}
+
+.wrong-login {
+    margin: 0;
+    visibility: hidden;
+}
+.not-wrong {
+    visibility: visible;
+    margin: 0;
+    color: var(--red-color);
 }

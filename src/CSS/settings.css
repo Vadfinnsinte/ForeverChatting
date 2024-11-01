@@ -1,3 +1,15 @@
+:root {
+    --background-color: #464343; 
+    --accent-color: #7A7FE0;
+    --opacity: 79%;
+    --lock-color: #676363; 
+    --text-color: #C3C3C3;
+    --button-height: 30px;
+    --input-height: 40px;
+    --input-width: 230;
+    --font-size-input-btn: 20px;
+    --red-color: #590B08; 
+}
 .main-settings {
     display: grid;
     grid-template-columns: 1fr;
@@ -52,7 +64,7 @@
 .delete-btn {
     width: 10rem;
     font-size: 17px;
-    background-color: #590B08;
+    background-color: var(--red-color);
     color: whitesmoke;
     grid-row: 7;
 }
@@ -79,7 +91,7 @@
     box-shadow: 0px 0px 14px #676363;
 
         .varning-h2{
-            color: #590B08;
+            color: var(--red-color);
             text-align: center;
             margin-top: 0;
         }
@@ -104,7 +116,7 @@
     color: var(--accent-color);
 }
 .delete-btn-final {
-    background-color: #590B08;
+    background-color: var(--red-color);
     color: var(--text-color);
 }
 .main-settings.blur * {
