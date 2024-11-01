@@ -48,3 +48,28 @@
     margin: 0;
     color: var(--red-color);
 }
+
+.visible {
+    color: #590B08;
+    margin: 0;
+    margin-bottom: -1em;
+}
+.invisible {
+    visibility: hidden;
+    margin: 0;
+    margin-bottom: -1em;
+}
+.h3-create {
+    text-align: center;
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+.new-login-btn {
+    height: var(--button-height);
+    border-radius: 11px;
+    border: 1px solid rgb(58, 57, 57);
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    font-size: var(--font-size-input-btn);
+}

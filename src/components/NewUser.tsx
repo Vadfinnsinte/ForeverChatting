@@ -15,9 +15,11 @@ const NewUser = () => {
             flair: "",
             image: ""
         }
-        
     )
     const [isCreated, setIsCreated] = useState<boolean>(false)
+    const [usernameNotavailable, setUsernameNotavailable] = useState<boolean>(false)
+    const [passwordToShort, setPasswordToShort] = useState<boolean>(false)
+    const [flairToLong, setFlairToLong] = useState<boolean>(false)
     const navigate = useNavigate() 
     
     const  handleCreate = async () => {
@@ -31,21 +33,21 @@ const NewUser = () => {
             delete userToSubmitt.image
         }
         const response = await createUser(userToSubmitt)
-        if(!response){
-            setUser
-            (
-                {
-                    username: "", 
-                    password:"",
-                    dateOfCreation: new Date(),
-                    flair: "",
-                    image: ""
-                }
-            )
+        if(user.password.length < 10){
+            setPasswordToShort(true)
         }
+        if(user.flair && user.flair.length > 30){
+            setFlairToLong(true)
+        }
+        if( response?.status === 409) {
+            setUsernameNotavailable(true)
+        }
+        
+         
+        else {
 
             setIsCreated(true)
-
+    
             try {
                 const username = user.username
                 const password  = user.password
@@ -60,7 +62,6 @@ const NewUser = () => {
                 })
                 
                 if(response.status !== 200) {
-                    console.log("try again");
                     return
                 }
                 
@@ -73,13 +74,27 @@ const NewUser = () => {
                 console.log("Try again later", error);
                 
             }
+        }
+
         
 
     }
     const handleLogin = () => {
         navigate("/chatrooms")
     }
-    
+    const handleUsername = (e:React.ChangeEvent<HTMLInputElement>) => {
+        setUser({ ...user, username: e.target.value })
+        setUsernameNotavailable(false)
+    }
+    const handlePassword = (e:React.ChangeEvent<HTMLInputElement>) =>  {
+        setUser({ ...user, password: e.target.value })
+        setPasswordToShort(false)
+    }
+    const handleFlair = (e:React.ChangeEvent<HTMLInputElement>)  => {
+        setUser({ ...user, flair: e.target.value })
+        setFlairToLong(false)
+
+    }
     
     return (
         <>
@@ -93,20 +108,23 @@ const NewUser = () => {
  {  !isCreated ?     
         (  
         <div className="login-box create-box">
-        <input onChange={(e) => setUser({ ...user, username: e.target.value })} value={user.username} className="input" placeholder="Username*"/>
-        <input onChange={(e) => setUser({ ...user, password: e.target.value })} value={user.password} className="input" placeholder="Password*"/>
+        <p className={usernameNotavailable ? "visible": "invisible"} >*username is taken</p>
+        <input onChange={(e) => handleUsername(e)} value={user.username} className="input" placeholder="Username*"/>
+        <p className={passwordToShort ? "visible": "invisible"} >*must be 10 charakters</p>
+        <input onChange={(e) => handlePassword(e)} value={user.password} className="input" placeholder="Password(min 10)* "/>
         
         <input onChange={(e) => setUser({ ...user, image: e.target.value })} value={user.image} className="input optional" placeholder="Profile picture url"/>
         
-        <input onChange={(e) => setUser({ ...user, flair: e.target.value })} value={user.flair} className="input" placeholder="Flair"/>
-        
+        <p className={flairToLong ? "visible": "invisible"} >*must be 10 charakters</p>
+        <input onChange={(e) => handleFlair(e)} value={user.flair} className="input" placeholder="Flair"/>
+  
         <button onClick={handleCreate} className="button login-btn">Create User</button>
         </div>
       ) 
         :(
             <div className="login-box"> 
                 <h3>Thank you for creating an account!</h3>
-                <button onClick={handleLogin}>Click here to login</button>
+                <button className="new-login-btn" onClick={handleLogin}>Continue to chatrooms</button>
             </div>
         ) } 
              <NavLink to="/" className="navlink">Go back to login</NavLink>

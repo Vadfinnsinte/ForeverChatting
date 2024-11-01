@@ -124,11 +124,14 @@ router.post("/new-user", async (req:Request, res:Response) => {
   const users = await getAllUsers()
   const usernameAvailability = users.find( user => user.username === newUser.username)
   
-  if(isValidUser(newUser) && usernameAvailability === undefined ) {
+
+  if(usernameAvailability) {
+    res.sendStatus(409)
+  }
+  else if (isValidUser(newUser) && usernameAvailability === undefined ) {
     await insertUser(newUser)
     res.sendStatus(201)
-  }
-  else {
+  }else {
     res.sendStatus(400)
   }
 

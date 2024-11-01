@@ -95,8 +95,6 @@ const LoginPage = () => {
                 <h2>Login:</h2>
                 <input onChange={(e) => userinputHandler(e)} className="input" type="text" placeholder="Username"></input>
                 <input onChange={(e) => passinputHandler(e)} className="input" type="text" placeholder="Password"></input>
-                {/* <input onChange={(e) => setUsernameInput(e.target.value)} className="input" type="text" placeholder="Username"></input>
-                <input onChange={(e) => setPasswordInput(e.target.value)} className="input" type="text" placeholder="Password"></input> */}
                 <button onClick={handleLogin} className="login-btn button" >Login</button>
                 <p className={!wrong ? "wrong-login" : "not-wrong"}>*Wrong password or username</p>
             </div>
