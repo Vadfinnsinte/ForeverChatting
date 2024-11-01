@@ -1,0 +1,108 @@
+:root {
+    --background-color: #464343; 
+    --accent-color: #7A7FE0;
+    --opacity: 79%;
+    --lock-color: #676363; 
+    --text-color: #C3C3C3;
+    --button-height: 30px;
+    --input-height: 40px;
+    --input-width: 230;
+    --font-size-input-btn: 20px;
+}
+* {
+    box-sizing: border-box;
+    font-family: "Afacad Flux", sans-serif;;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.navlink {
+    color: var(--accent-color);
+    margin-top: 0.3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+
+.icon {
+    margin-top: 0.7rem;
+    font-size: 30px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.input {
+    height: var(--input-height);
+    width: var(--input-width);
+    font-size: var(--font-size-input-btn);
+    background-color: var(--accent-color);
+    border: 1px solid var(--background-color);
+    color: var(--background-color);
+}
+
+.button {
+    width: 123px;
+    height: var(--button-height);
+    font-size: var(--font-size-input-btn);
+    border-radius: 11px;
+    margin: auto;
+    border: 1px solid rgb(58, 57, 57)
+}
+::placeholder {
+    color: var(--background-color);
+}
+
+
+
+.color {
+    color: var(--accent-color);
+}
+.plus {
+    position: absolute;
+    right: 7rem;
+    top: 5.2rem;
+}
+
+
+.back-icon{
+    font-size: 25px;
+    /* color: var(--lock-color); */
+    color: #2F2C2C;
+    position: absolute;
+    margin: 1rem 0 0 1rem;
+
+}
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    background-color: var(--background-color);
+    margin-bottom: 0.3rem;
+    
+}
+
+.close-icon {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    font-size: 20px;
+}
+
+.optional {
+    margin-top: 1rem;
+}
+
+
+.margin {
+    margin-top: 1.3rem;
+}

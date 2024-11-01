@@ -17,7 +17,9 @@ export async function deleteUser(id: ObjectId) {
             return
         } 
         console.log(`deleted: ${result.deletedCount}`);
+
         return result
+        
     }catch (error) {
         console.error('Error fetching Users', error);
         throw error;

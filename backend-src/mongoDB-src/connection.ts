@@ -17,6 +17,8 @@ export async function connectToDatabase<T extends Document>(dataPointer : string
     const client: MongoClient = new MongoClient(con)
     await client.connect()
     try {
+    
+        
         const db : Db = await client.db("foreverChatting")
         const collection: Collection <T> = db.collection<T>(dataPointer)
         

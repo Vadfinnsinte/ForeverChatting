@@ -11,6 +11,7 @@ async function getAllRooms(): Promise<WithId<Room>[]> {
     
     try {
         
+        console.log("Get alla rooms MONGO");
         
         x = await connectToDatabase<RoomDocument>("rooms")
         

@@ -1,0 +1,27 @@
+.login-box {
+    background-color: var(--accent-color);
+    display: flex;
+    margin: auto;
+    margin-top: 5em;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    border-radius: 8px;
+    gap: 1em;
+    max-width: 17em;
+        h2 {
+            text-align: center;
+            margin: 0.2em;
+            color: var(--background-color);
+        }
+}
+
+.login-btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+}
+.create-user-btn {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+   
+}

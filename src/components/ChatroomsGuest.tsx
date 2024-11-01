@@ -34,7 +34,7 @@ const ChatroomsGuest  = () => {
     
     useEffect(() => {
         handleGet();
-    }, [handleGet]);
+    }, []);
     
     
     return (

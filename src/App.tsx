@@ -1,8 +1,11 @@
 
 import { Outlet } from 'react-router-dom'
-import './App.css'
-
-
+import './CSS/App.css'
+import "./CSS/login.css"
+import "./CSS/header.css"
+import "./CSS/chatrooms.css"
+import "./CSS/chat.css"
+import "./CSS/settings.css"
 function App() {
 
 

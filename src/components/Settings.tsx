@@ -6,6 +6,8 @@ import { TempUser } from "../data/models/User";
 import { getActiveUser } from "../functions/getActiveUser";
 import { searchUsers } from "../functions/searchUsers";
 import { deleteUser, updeteDM, updeteMesageName } from "../functions/deleteUser";
+import { IoArrowBackOutline } from "react-icons/io5";
+
 const LS_KEY = 'JWT-DEMO--TOKEN'
 
 
@@ -57,14 +59,22 @@ const Settings = () => {
         if(userObject?._id && userObject.username){
             await updeteMesageName(userObject?.username)
             await updeteDM(userObject.username, userObject._id)
-            await deleteUser(userObject?._id)
             logoutFunction()
+            await deleteUser(userObject?._id)
         }
     }
+    const handleback = () => { 
+        navigate("/chatrooms")
+}
       
     return (
         <>
+        <header className='header settings-h'>
+            <h1>{userObject?.username}</h1>
+        </header>
+
         <main className={ !isDeleting ? ( "main-settings") : ("main-settings blur") }>
+        <IoArrowBackOutline onClick={handleback}  className="back-icon"/>
             <div className="settings-div">
         
                 <h3>Settings</h3>

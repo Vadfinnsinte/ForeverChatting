@@ -1,0 +1,77 @@
+
+.chat-page-main {
+    display: flex;
+        h3{
+            color: var(--accent-color);
+            text-decoration: underline;
+            /* margin: auto; */
+            text-align: center;
+            margin-top: 0.7rem;
+        }
+
+}
+.chat-page {
+    padding: 0.2em 1em;
+    border-bottom: 1px solid #2F2C2C;
+    color: var(--text-color);
+
+        .p-message {
+            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+            
+        }
+        .p-username {
+            color: #7A7FE0;
+            margin-top: 0.2rem;
+            margin-left: 0.3em;
+            margin-bottom: 0;
+        }
+        
+}
+.pic-name-div {
+    display: flex;
+
+}
+.message-div {
+    height: 24rem;
+    overflow: scroll;
+    margin: 1rem 2rem 0 2rem;
+}
+.message-input {
+   margin-top: 1.2rem;
+   border-radius: 11px;
+   background-color: var(--accent-color);
+   resize: none; 
+   overflow: auto;
+    font-size: 18px;
+}
+
+.send-btn {
+    background-color: var(--accent-color);
+    margin-top: 0.2em;
+    
+}
+.senderInformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+
+        .date {
+            margin-top: 0.45rem;
+            font-size: 11px;
+            color: var(--accent-color)
+        }
+}
+
+.locked {
+    color: var(--lock-color);
+
+        h3{
+            color: var(--lock-color);
+        }
+}
+.lock-icon {
+    color: var(--text-color);
+    margin-left: 0.3rem;
+}

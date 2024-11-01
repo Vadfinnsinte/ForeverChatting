@@ -1,0 +1,123 @@
+.main-settings {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.header.settings-h h1{
+    font-size: 29px;
+}
+.settings-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex; 
+    place-self: center;
+    background-color: var(--background-color);
+    margin-bottom: 0.3rem;
+}
+.settings-div {
+    /* margin-top: 1rem; */
+    place-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+
+        h3 {
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 22px;
+        }
+
+}
+.change-info-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-self: center;
+    gap: 1.5rem;
+
+        h3 {
+            margin: 0;
+            text-align: center;
+            color: var(--accent-color);
+        }
+  
+    
+}
+
+.logout-btn{
+    background-color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.delete-btn {
+    width: 10rem;
+    font-size: 17px;
+    background-color: #590B08;
+    color: whitesmoke;
+    grid-row: 7;
+}
+.flair {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+.input-label {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.varning-div {
+    position: absolute;
+    padding: 2rem;
+    top: 12rem;
+    right: 1.2rem;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    box-shadow: 0px 0px 14px #676363;
+
+        .varning-h2{
+            color: #590B08;
+            text-align: center;
+            margin-top: 0;
+        }
+        p {
+            font-size: 20px;
+        }
+}
+.button-div {
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    width: 110px;
+    height: 29px;
+    border-radius: 11px;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 18px;
+}
+.cancel-btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+}
+.delete-btn-final {
+    background-color: #590B08;
+    color: var(--text-color);
+}
+.main-settings.blur * {
+    filter: blur(1px);
+}
+.user-div {
+    place-self: center;
+        .p-user {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            color: var(--accent-color);
+            font-size: 20px;
+            /* text-decoration: underline; */
+        }
+}
+

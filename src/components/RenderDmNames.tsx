@@ -42,27 +42,33 @@ const RenderDmNames = () => {
                 ...matchingdm
                     .filter(username => username.senderName !== activeusername)
                     .map(dm => ({
-                        displayName: dm.senderName === "deleted" ? "deleted" : dm.senderName,
+                        displayName: dm.senderName,
                         id: dm.senderName === "deleted" ? dm.deletedID : dm.deletedID
                     })),
                 ...matchingdm
                     .filter(dm => dm.reciverName && dm.reciverName !== activeusername)
                     .map(dm => ({
-                        displayName: dm.reciverName === "deleted" ? "deleted" : dm.reciverName,
+                        displayName: dm.reciverName,
                         id: dm.reciverName === "deleted" ? dm.deletedID : dm.deletedID
                     }))
             ];
+     
+            const uniqueNames : Deleted[]= [];
+            const seenNames = new Set();
         
-            // Remove duplicates by `id`
-            const uniqueNames = names.filter(
-                (name, index, self) =>
-                    index === self.findIndex((t) => t.id === name.id)
-            );
+            names.forEach(name => {
+                if (name.displayName === "deleted" || !seenNames.has(name.displayName)) {
+                    uniqueNames.push(name);
+                    if (name.displayName !== "deleted") {
+                        seenNames.add(name.displayName); 
+                    }
+                }
+            });
         
             setUniqueNames(uniqueNames);
             setDmObjects(matchingdm);
         }}
-
+  
 
    const handleSearchUser = async (e: React.ChangeEvent<HTMLInputElement> ) => {
     const value = e.target.value.trim().toLowerCase()
@@ -118,13 +124,10 @@ const RenderDmNames = () => {
             }
 
         </div>
-        {/* {uniqueNames.map((name, index) => (
-            <p onClick={() => handlePrivateDM(name)} key={index}>{name}</p>
-        ))} */}
         {uniqueNames.map(({ displayName, id }, index) => (
-    <p onClick={() => handlePrivateDM(displayName,id)} key={index}>
-        {displayName}
-    </p>
+            <p onClick={() => handlePrivateDM(displayName,id)} key={index}>
+             {displayName}
+            </p>
 ))}
         
         </div>
