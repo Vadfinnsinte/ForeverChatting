@@ -136,7 +136,7 @@ const RenderDmNames = () => {
         <details open={isOpen}>
             <summary></summary>
         {uniqueNames.map(({ displayName, id }, index) => (
-            <p onClick={() => handlePrivateDM(displayName,id)} key={index}>
+            <p className="chat-room-name" onClick={() => handlePrivateDM(displayName,id)} key={index}>
              {displayName}
             </p>
 ))}

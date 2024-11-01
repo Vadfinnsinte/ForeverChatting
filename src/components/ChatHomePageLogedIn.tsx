@@ -103,10 +103,11 @@ const ChatHomePageLogedIn = () => {
       </div>}
 
     <main className={ !addingRoom ? ( "main-chat") : ("main-chat blur") }>
+      
     <BiSolidDownArrow  onClick={handleToggle} className={isOpen ?"collapse-icon" : "collapse-icon inline"} />
     <h3 onClick={handleToggle} className="color center">Chat-Rooms</h3> 
-    <div className="chat-room-div">
     <FaPlus className="plus" onClick={handleNewChatRoom}/>
+    <div className="chat-room-div">
     
     <details open={isOpen}>
       <summary className="i" >{""}</summary>
