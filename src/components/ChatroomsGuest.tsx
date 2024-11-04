@@ -38,12 +38,16 @@ const ChatroomsGuest  = () => {
     
     
     return (
-        
         <>
+        <header className='header'>
+        <h1>ForeverChat</h1>
+        
+        </header>
+        <main className="main-chat">
         <div className="chat-room-div">
-        <h3>Chat-Rooms</h3>
+        <h3 className="color center" >Chat-Rooms</h3>
         { allRooms && allRooms.map(room => (
-            <p onClick={() => handleChat(room.name, room.status)}  className={room.status ? 'locked' : 'unlocked'} key={room._id}> {room.name}{room.status === true && (
+            <p  onClick={() => handleChat(room.name, room.status)}  className={room.status ? 'chat-room-name p locked' : ' chat-room-name p unlocked'} key={room._id}> # {room.name}{room.status === true && (
                 <span className="lock-icon" aria-label="Locked">
                     <FaLock/>
                 </span>
@@ -52,9 +56,10 @@ const ChatroomsGuest  = () => {
         
         </div>
         <div className="chat-room-div">
-        <h3 className="locked"> DM's <FaLock className="lock-icon"/> </h3>
+        <h3 className="locked center"> DM's <FaLock className="lock-icon"/> </h3>
         <NavLink className="navlink" to="/">Login to send DM's</NavLink> 
         </div>
+        </main>
         </>
     )
 }

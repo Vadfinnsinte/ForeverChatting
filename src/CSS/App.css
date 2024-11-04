@@ -88,6 +88,11 @@ main {
 .create-pic-div {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    max-height: 5rem;
+    overflow: scroll;
+}
+.create-pic-div::-webkit-scrollbar{
+    display: none;
 }
 .profile-pic {
     width: 30px;

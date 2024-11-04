@@ -129,7 +129,7 @@ const ChatHomePageLogedIn = () => {
     
     
     </div>
-    <RenderDmNames setAddBlur={setAddBlur}/> 
+    <RenderDmNames/> 
     </main>
     
     

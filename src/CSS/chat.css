@@ -82,12 +82,15 @@
         }
 }
 
-.locked {
+.chat-room-name.p.locked {
     color: var(--lock-color);
-
-        h3{
-            color: var(--lock-color);
-        }
+    margin: 1rem;
+}
+.locked.center {
+    color: var(--lock-color);
+}
+.chat-room-name.p.unlocked {
+    margin: 1rem;
 }
 .lock-icon {
     color: var(--text-color);

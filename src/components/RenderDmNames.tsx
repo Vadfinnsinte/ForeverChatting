@@ -15,11 +15,9 @@ interface Deleted {
     id: string;
     displayName: string;
 }
-interface props {
-   setAddBlur: (value: boolean) => void;
-}
 
-const RenderDmNames = ({setAddBlur}:props) => {
+
+const RenderDmNames = () => {
     const [uniqueNames, setUniqueNames] = useState<Deleted[]>([])
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [matchingUsers, setMatchingUsers] = useState<User[]>([])
@@ -116,7 +114,6 @@ const RenderDmNames = ({setAddBlur}:props) => {
     };
     const setSearching = () => {
         setIsSearching(!isSearching)
-        // setAddBlur(true)
     }
      
     useEffect(() => {

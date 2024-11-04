@@ -124,7 +124,7 @@ const NewUser = () => {
         <p className="no-margin">No Url? Choose a picture:</p>
             <div className="create-pic-div">
             {listOfPictures.map(picture => (
-                <img className={user.image === picture ? "profile-pic border" : "profile-pic"}src={picture} onClick={() => handleImage(picture)} /> 
+                <img key={picture} className={user.image === picture ? "profile-pic border" : "profile-pic"}src={picture} onClick={() => handleImage(picture)} /> 
             )) }
 
             </div>
