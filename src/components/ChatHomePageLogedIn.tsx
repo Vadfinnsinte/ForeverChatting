@@ -11,7 +11,6 @@ import { RxCross1 } from "react-icons/rx";
 import { Room } from "../data/models/Room.js";
 import { createNewRoom } from "../functions/createNewRoom.js";
 import { BiSolidDownArrow } from "react-icons/bi";
-import { boolean } from "joi";
 
 // const LS_KEY = 'JWT-DEMO--TOKEN'
 
