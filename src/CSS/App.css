@@ -15,6 +15,13 @@
     font-family: "Afacad Flux", sans-serif;;
 }
 
+/* input:-webkit-autofill {
+    -webkit-background-color: var(--accent-color);
+} */
+
+button:hover {
+    cursor: pointer;
+}
 body {
     background-color: var(--background-color);
 }
@@ -60,13 +67,15 @@ main {
     color: var(--background-color);
 }
 
-
-
+.hover:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+ 
 .color {
     color: var(--accent-color);
     
 }
-
 
 .back-icon{
     font-size: 25px;
@@ -75,6 +84,10 @@ main {
     position: absolute;
     margin: 1rem 0 0 1rem;
 
+}
+.create-pic-div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 .profile-pic {
     width: 30px;
@@ -85,21 +98,37 @@ main {
     justify-content: center;
     background-color: var(--background-color);
     margin-bottom: 0.3rem;
+    /* margin: auto; */
+    place-self: center;
     
 }
-
+.profile-pic.border {
+    border: 2px solid var(--background-color);
+    width: 35px;
+    height: 35px;
+}
+.no-margin {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--background-color);
+}
 .close-icon {
     position: absolute;
     top: 0.7rem;
     left: 0.7rem;
     font-size: 20px;
 }
-
 .optional {
     margin-top: 1rem;
 }
-
-
 .margin {
     margin-top: 1.3rem;
+}
+
+
+@media (min-width: 550px) {
+  .back-icon{
+    margin: 1rem 0 0 3rem;
+  }   
 }

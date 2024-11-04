@@ -25,14 +25,8 @@
     padding-left: 3rem;
     padding-right: 3rem;
     margin: auto;
-    text-align: center;
+    /* text-align: center; */
     border-bottom: 1px solid #2F2C2C;
-
-        .DM-h {
-            color: var(--accent-color);
-        }
-     
-
 }
 
 .DM-div {
@@ -42,39 +36,36 @@
  } 
 
 .new-chat-icon {
-    /* position: absolute;
-    bottom: 13.6rem;
-    right: 7rem; */
     place-self: center;
     margin-left: 0.5rem;
-}
-.plus {
-    position: absolute;
-    right: 7rem;
-    top: 5.2rem;
 }
 
 
 .search-user {
     position: absolute;
     top: 5rem;
-    left: 5rem;
+    left: 10%;
+    right: 10%;
+    /* top: 5rem;
+    left: 5rem; */
     border: 2px solid black;
     background-color: var(--background-color);
     height: 30rem;
     min-width: 12rem;
     padding: 2.5rem;
     overflow: scroll;
+
 }
+
 .search-div {
     display: flex;
     margin-top: 1rem;
     border-bottom: 1px solid #2F2C2C;
     
-        p {
-           color: var(--accent-color);
-           margin: 0 0.3rem;
-        }
+    p {
+        color: var(--accent-color);
+        margin: 0 0.3rem;
+    }
     
 }
 
@@ -100,7 +91,7 @@
     gap: 1rem;
     text-align: center;
     z-index: 1;
-   
+    
 }
 
 .radio-div {
@@ -121,22 +112,34 @@
 }
 
 .chat-room-name {
-    margin: 1.2rem;
+    margin: 1rem;
+}
+.chat-room-name.p {
+    margin: 1.5rem;
+}
+.chat-room-name:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 summary {
     list-style-type: none; 
     cursor: pointer; 
     display: none;
-  }
+}
 
 summary::-webkit-details-marker {
     display: none; 
-  }
+}
 
+.plus {
+    align-self: center;
+    margin-left: 0.5rem;
+
+} 
 .collapse-icon {
-    position: absolute;
-    left: 7rem;
-    top: 5.2rem;
+    align-self: center;
+    justify-self: end;
+    margin-right: 0.5rem;
 }
 .collapse-icon.inline {
     transform: rotate(270deg);
@@ -148,4 +151,53 @@ summary::-webkit-details-marker {
 }
 .collapse-icon-dm.inline {
     transform: rotate(270deg);
+}
+
+.chatroom-h-div {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    max-width: 14rem;
+    place-self: center;
+    text-align: center;
+}
+
+
+@media (min-width: 550px) {
+    .header-chat {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .settings {
+        right: 3.5rem;
+    }
+    .username-header{
+        right: 3.4rem;
+    }
+    
+    .main-chat {
+        margin: auto;
+        max-width: 60rem;
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+     
+         .chatroom-h-div.dm{
+            grid-column: 2;
+            grid-row: 1;
+         }
+    }
+    .add-room-div, .search-user {
+        right: 25%;
+        left: 25%;
+    }
+    .chat-room-div {
+        max-height: 33rem;
+        min-height: 33rem;
+    }
+    .chat-room-div::-webkit-scrollbar {
+        display: none;
+    }
+    .search-user::-webkit-scrollbar {
+        display: none;
+    }
 }

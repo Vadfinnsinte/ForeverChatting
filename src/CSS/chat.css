@@ -44,8 +44,14 @@
     display: flex;
 
 }
+
+.pic-name-div.small {
+    display: flex;
+    border-top: 1px solid #2F2C2C;;
+
+}
 .message-div {
-    height: 24rem;
+    max-height: 24rem;
     overflow: scroll;
     margin: 1rem 2rem 0 2rem;
 }
@@ -86,4 +92,20 @@
 .lock-icon {
     color: var(--text-color);
     margin-left: 0.3rem;
+}
+
+
+@media (min-width: 550px) {
+    .message-div {
+        overflow: scroll;
+        max-height: 35rem;
+    }   
+    .message-div::-webkit-scrollbar {
+        display: none;
+    }
+    .chat-page-main {
+        max-width: 60rem;
+        margin: auto;
+
+    }
 }
