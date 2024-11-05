@@ -23,6 +23,7 @@ const NewUser = () => {
     const [passwordToShort, setPasswordToShort] = useState<boolean>(false)
     const [flairToLong, setFlairToLong] = useState<boolean>(false)
     const navigate = useNavigate() 
+    console.log(isMarked);
     
     const  handleCreate = async () => {
         setUser({...user, dateOfCreation: new Date()})
