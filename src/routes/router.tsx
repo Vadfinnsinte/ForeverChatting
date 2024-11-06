@@ -45,7 +45,6 @@ const router = createHashRouter([
             {
                 path: "/",
                 element: <LoginPage/>
-                // element: <ChatHomePageLogedIn/>
             }
         ]
     }

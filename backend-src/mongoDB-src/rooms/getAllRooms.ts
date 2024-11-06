@@ -11,18 +11,11 @@ async function getAllRooms(): Promise<WithId<Room>[]> {
     
     try {
         
-        console.log("Get alla rooms MONGO");
-        
         x = await connectToDatabase<RoomDocument>("rooms")
         
         const cursor: FindCursor <WithId<Room>> = x.collection.find({})
         const found: WithId<Room>[] = await cursor.toArray()
         
-        
-        if(found.length < 1) {
-            console.log( "No Rooms awailable today :/");
-            
-        }
         
         return found
         

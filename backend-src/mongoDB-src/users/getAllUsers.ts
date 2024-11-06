@@ -16,12 +16,6 @@ async function getAllUsers(): Promise<WithId<User>[]> {
         const cursor: FindCursor <WithId<User>> = x.collection.find({})
         const found: WithId<User>[] = await cursor.toArray()
         
-        
-        if(found.length < 1) {
-            console.log( "No users awailable today :/");
-            
-        }
-        
         return found
         
     }catch (error) {

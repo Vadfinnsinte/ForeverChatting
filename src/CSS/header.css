@@ -46,9 +46,7 @@
     margin-top: 0;
     position: absolute;
     top: 3.2rem;
-    left: -0.5rem;
     font-size: 15px;
-    text-align: center;
     
 }
 .settings {
@@ -85,18 +83,7 @@
         padding-bottom: 1rem;
         max-width: 60rem;
         margin: auto;
-        /* justify-content: space-around; */
    
     }
 }
 
-
-/* 
-@media (min-width: 1000px) { 
-    .settings {
-        right: 4.5rem;
-    }
-    .username-header{
-        right: 4.2rem;
-    }
-} */

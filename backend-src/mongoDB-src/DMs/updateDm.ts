@@ -17,13 +17,12 @@ export async function updateDM( username :string,  id: ObjectId) {
             { $set: { senderName: "deleted", deletedID: id } }
         );
         
-        // Update `reciverName` if it matches `username`
         const resultReceiver: UpdateResult<DMDocument> = await x.collection.updateMany(
             { reciverName: username },
             { $set: { reciverName: "deleted", deletedID: id } }
         );
         if (!resultSender.acknowledged && !resultReceiver.acknowledged) {
-            console.log("No matching documents were found.");
+            // console.log("No matching documents were found.");
             return;
         }
         

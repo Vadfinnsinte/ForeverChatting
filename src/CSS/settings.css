@@ -30,7 +30,6 @@
     margin-bottom: 0.3rem;
 }
 .settings-div {
-    /* margin-top: 1rem; */
     place-self: center;
     display: grid;
     grid-template-columns: 1fr;
@@ -130,7 +129,6 @@
             margin-bottom: 0;
             color: var(--accent-color);
             font-size: 20px;
-            /* text-decoration: underline; */
         }
 }
 

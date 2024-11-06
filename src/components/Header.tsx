@@ -14,7 +14,6 @@ const navigate = useNavigate()
     const handleGetUser = async () => {
 
         const activeUsername = await getActiveUser()
-        console.log(activeUsername);
         
         if(activeUsername) {
             const users = await searchUsers(activeUsername)
@@ -22,9 +21,7 @@ const navigate = useNavigate()
                 setUserObject(users[0])
             }
         }else {
-            setIsGuest(true)
-            console.log(isGuest);
-            
+            setIsGuest(true)  
         }
     }
     const handleSettings = () => {
@@ -49,13 +46,6 @@ const navigate = useNavigate()
 
                 </div>
         </div>) : (<p></p>) }
-        {/* <div className="user-header" onClick={handleSettings}>
-            {userObject?.image ? (<img className="header-profile-pic" src={userObject?.image}/>) : (  <FaUserAlt className="header-profile-pic icon" />)}
-        </div>
-            <p onClick={handleSettings} className="settings">⚙️</p>
-            <p className="username-header">{userObject?.username}</p>
-
-        </div> */}
     </header> 
 
     )

@@ -11,15 +11,11 @@ async function getMatchingDmNames(userName: string): Promise<WithId<DM>[]> {
     
     try {
 
-        
-        
         x = await connectToDatabase<DMDocument>("dms")
         
         const cursor: FindCursor <WithId<DM>> = x.collection.find({$or: [{ reciverName: userName }, { senderName: userName }]})
-        
 
         const found: WithId<DM>[] = await cursor.toArray()
-        
         
         if(found.length < 1) {
             console.log( "No dms awailable today :/");
@@ -40,10 +36,6 @@ async function getMatchingDmNames(userName: string): Promise<WithId<DM>[]> {
 
     }
 }
-
-
-
-
 
 
 export {getMatchingDmNames}

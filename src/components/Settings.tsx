@@ -33,7 +33,7 @@ const Settings = () => {
     }
     
     function logoutFunction() {
-        setIsLoggedIn(false) // håll syncad med LS_key. 
+        setIsLoggedIn(false) 
         localStorage.removeItem(LS_KEY)
         navigate("/")
     }

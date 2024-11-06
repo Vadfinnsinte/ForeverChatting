@@ -15,9 +15,6 @@
     font-family: "Afacad Flux", sans-serif;;
 }
 
-/* input:-webkit-autofill {
-    -webkit-background-color: var(--accent-color);
-} */
 
 button:hover {
     cursor: pointer;
@@ -79,22 +76,12 @@ main {
 
 .back-icon{
     font-size: 25px;
-    /* color: var(--lock-color); */
-    /* color: #2F2C2C; */
     color: black;
     position: absolute;
     margin: 1rem 0 0 1rem;
 
 }
-.create-pic-div {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-height: 5rem;
-    overflow: scroll;
-}
-.create-pic-div::-webkit-scrollbar{
-    display: none;
-}
+
 .profile-pic {
     width: 30px;
     height: 30px;
@@ -104,7 +91,6 @@ main {
     justify-content: center;
     background-color: var(--background-color);
     margin-bottom: 0.3rem;
-    /* margin: auto; */
     place-self: center;
     
 }

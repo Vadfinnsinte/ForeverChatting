@@ -1,5 +1,5 @@
 import { Room } from "../data/models/Room";
-// import { variableStore } from "../data/store";
+
 
 
 export async function getAllRooms(): Promise<Room[] | null> {
@@ -14,7 +14,7 @@ export async function getAllRooms(): Promise<Room[] | null> {
 
         const rooms: Room[] = await response.json(); 
 
-        // setAllRooms(rooms);  
+      
         return (rooms)
 
     } catch (error) {

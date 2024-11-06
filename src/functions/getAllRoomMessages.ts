@@ -13,7 +13,6 @@ export async function getAllRoomMessages(): Promise<RoomMessage[] | null> {
 
         const roomsMessages: RoomMessage[] = await response.json(); 
 
-        // setAllRooms(rooms);  
         return (roomsMessages)
 
     } catch (error) {

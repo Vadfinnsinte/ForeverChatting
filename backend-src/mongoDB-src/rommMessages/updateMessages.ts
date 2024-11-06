@@ -22,7 +22,6 @@ export async function updateMessage(username: string) {
             return
             
         } 
-        console.log(`update: ${result.upsertedCount}`);
         return result
         
     }catch (error) {

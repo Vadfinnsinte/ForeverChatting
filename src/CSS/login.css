@@ -28,7 +28,19 @@
             color: var(--background-color);
         }
 }
-
+.profile-pic.larger {
+    width: 40px;
+    height: 40px;
+}
+.create-pic-div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-height: 7rem;
+    overflow: scroll;
+}
+.create-pic-div::-webkit-scrollbar{
+    display: none;
+}
 .login-btn {
     background-color: var(--background-color);
     color: var(--accent-color);

@@ -24,7 +24,8 @@ const NewUser = () => {
     const [passwordToShort, setPasswordToShort] = useState<boolean>(false)
     const [flairToLong, setFlairToLong] = useState<boolean>(false)
     const navigate = useNavigate() 
-    console.log(isMarked);
+
+    // isMarked;
     
     const  handleCreate = async () => {
         
@@ -135,7 +136,7 @@ const NewUser = () => {
         <p className="no-margin">No Url? Choose a picture:</p>
             <div className="create-pic-div">
             {listOfPictures.map(picture => (
-                <img key={picture} className={user.image === picture ? "profile-pic border" : "profile-pic"}src={picture} onClick={() => handleImage(picture)} /> 
+                <img key={picture} className={user.image === picture ? "profile-pic larger border" : "profile-pic larger"}src={picture} onClick={() => handleImage(picture)} /> 
             )) }
 
             </div>

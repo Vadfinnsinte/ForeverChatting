@@ -80,7 +80,7 @@ const ChatRoom = () => {
             })
             
             if(response.status !== 201) {
-                console.log("try again")
+                
                 return
             }
             setMessageInput("")  

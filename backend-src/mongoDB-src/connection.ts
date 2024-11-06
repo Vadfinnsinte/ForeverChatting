@@ -11,7 +11,6 @@ interface ClientType<T extends Document> {
 export async function connectToDatabase<T extends Document>(dataPointer : string): Promise<ClientType<T>>{
     
     if(!con){
-        console.log("Error: connection string not found");
         throw new Error("No connection!")
     }
     const client: MongoClient = new MongoClient(con)

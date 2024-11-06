@@ -16,7 +16,6 @@
         h3{
             color: var(--accent-color);
             text-decoration: underline;
-            /* margin: auto; */
             text-align: center;
             margin-top: 0.7rem;
         }

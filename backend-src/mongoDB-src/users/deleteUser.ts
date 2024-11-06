@@ -13,10 +13,8 @@ export async function deleteUser(id: ObjectId) {
         const filter = {_id: id}
         const result: DeleteResult = await x.collection.deleteOne(filter)
         if (!result.acknowledged) {
-            console.log("Did not find a matching dokument");
             return
         } 
-        console.log(`deleted: ${result.deletedCount}`);
 
         return result
         

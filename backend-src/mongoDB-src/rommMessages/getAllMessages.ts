@@ -9,19 +9,12 @@ let x: ClientType<RoomDocument>
 
 async function getAllMessages(): Promise<WithId<RoomMessage>[]> {
     
-    try {
-        
+    try {  
         
         x = await connectToDatabase<RoomDocument>("roomMessages")
         
         const cursor: FindCursor <WithId<RoomMessage>> = x.collection.find({})
         const found: WithId<RoomMessage>[] = await cursor.toArray()
-        
-        
-        if(found.length < 1) {
-            console.log( "No Rooms awailable today :/");
-            
-        }
         
         return found
         

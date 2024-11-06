@@ -12,7 +12,6 @@ export async function getAllUsers(): Promise<User[] | null> {
 
         const users: User[] = await response.json(); 
 
-        // setAllRooms(rooms);  
         return (users)
 
     } catch (error) {

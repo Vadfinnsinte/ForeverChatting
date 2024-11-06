@@ -83,7 +83,6 @@ const RenderPrivateDM = () => {
             })
 
             if(response.status !== 201) {
-                console.log("try again 3")
                 return
             }
             setMessageInput("")  
