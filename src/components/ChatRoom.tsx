@@ -113,8 +113,11 @@ const ChatRoom = () => {
     },[])
     
     return (
-        <main className="chat-page-main">
+        <>
+        
+        
         <Header />
+        <main className="chat-page-main">
         <div>
         <IoArrowBackOutline onClick={handleback}  className="back-icon"/>
         <h3 className="dm-name">{room}</h3>
@@ -149,6 +152,7 @@ const ChatRoom = () => {
         <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
         <button onClick={handleSendMessage} className="button send-btn" >Send</button>
         </main>
+        </>
     )
 }
 

@@ -26,33 +26,35 @@
     display: flex;
     justify-content: space-between;
 }
+.profile-div {
+    position: relative;
+}
 .user-header {
     width: 40px;
     height: 40px;
+    position: relative;
     border-radius: 50%; 
     overflow: hidden; 
     display: flex; 
     justify-content: center;
-    /* justify-self: center; */
     background-color: var(--background-color);
     margin-right: 1.5rem;
     margin-top: 0.5rem;
     
-    
 }
 .username-header {
     margin-top: 0;
-    /* margin-right: 1.5rem; */
     position: absolute;
     top: 3.55rem;
-    right: 1.4rem;
+    left: -0.5rem;
     font-size: 15px;
     
 }
 .settings {
     position: absolute;
-    right: 1.5em;
-    top: 1.5em;
+    top: 1.4em;
+    left: 1.4rem;
+
  }
 
 .header-profile-pic  {
@@ -74,3 +76,26 @@
     margin-bottom: 0;
     transform: rotate(-12deg);
 }
+
+@media (min-width: 550px) { 
+    .header-chat {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1rem;
+        max-width: 60rem;
+        margin: auto;
+        /* justify-content: space-around; */
+   
+    }
+}
+
+
+/* 
+@media (min-width: 1000px) { 
+    .settings {
+        right: 4.5rem;
+    }
+    .username-header{
+        right: 4.2rem;
+    }
+} */

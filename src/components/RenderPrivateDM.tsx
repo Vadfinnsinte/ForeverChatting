@@ -119,8 +119,10 @@ const RenderPrivateDM = () => {
 
 
     return (
-        <main className="chat-page-main">
+        <>
+        
         <Header/> 
+        <main className="chat-page-main">
         <div>
         <IoArrowBackOutline onClick={handleback} className="back-icon"/>
         <h3 className="dm-name">{name}</h3>
@@ -151,6 +153,7 @@ const RenderPrivateDM = () => {
         <button onClick={handleSendMessage} className="button send-btn" >Send</button>
         
         </main>
+        </>
     )
 }
 

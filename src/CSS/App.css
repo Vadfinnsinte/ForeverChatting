@@ -80,7 +80,8 @@ main {
 .back-icon{
     font-size: 25px;
     /* color: var(--lock-color); */
-    color: #2F2C2C;
+    /* color: #2F2C2C; */
+    color: black;
     position: absolute;
     margin: 1rem 0 0 1rem;
 

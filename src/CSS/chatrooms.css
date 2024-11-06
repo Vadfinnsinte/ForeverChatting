@@ -163,17 +163,14 @@ summary::-webkit-details-marker {
 
 
 @media (min-width: 550px) {
-    .header-chat {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .settings {
+
+    /* .settings {
         right: 3.5rem;
     }
+
     .username-header{
         right: 3.4rem;
-    }
-    
+    } */
     .main-chat {
         margin: auto;
         max-width: 60rem;
