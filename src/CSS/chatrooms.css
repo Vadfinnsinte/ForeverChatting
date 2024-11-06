@@ -68,6 +68,9 @@
     }
     
 }
+.search-container{
+    justify-self: center;
+}
 
 .search-input {
     background-color: var(--accent-color);
@@ -159,6 +162,11 @@ summary::-webkit-details-marker {
     max-width: 14rem;
     place-self: center;
     text-align: center;
+}
+.emty-chat-p {
+    text-align: center;
+    color: var(--text-color);
+
 }
 
 

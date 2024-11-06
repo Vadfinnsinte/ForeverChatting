@@ -146,7 +146,7 @@ const ChatRoom = () => {
             
             
         ) ) : (
-            <p>EmptyChat :/</p>
+            <p className="emty-chat-p">This chat is emty :/</p>
         )}
         </div>
         <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   

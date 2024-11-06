@@ -86,6 +86,10 @@
     color: var(--lock-color);
     margin: 1rem;
 }
+.chat-room-name.p.locked:hover {
+text-decoration: none;
+cursor: default;
+}
 .locked.center {
     color: var(--lock-color);
 }

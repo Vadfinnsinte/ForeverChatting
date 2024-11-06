@@ -45,14 +45,15 @@
 .username-header {
     margin-top: 0;
     position: absolute;
-    top: 3.55rem;
+    top: 3.2rem;
     left: -0.5rem;
     font-size: 15px;
+    text-align: center;
     
 }
 .settings {
     position: absolute;
-    top: 1.4em;
+    top: 1em;
     left: 1.4rem;
 
  }

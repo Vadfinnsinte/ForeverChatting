@@ -8,7 +8,7 @@ export const UserSchema = Joi.defaults(schema => {
     .object({
         username: Joi.string()
             .min(3)
-            .max(12)
+            .max(14)
             .required(),
         password: Joi.string().min(10).required(),
         image: Joi.string().optional(),

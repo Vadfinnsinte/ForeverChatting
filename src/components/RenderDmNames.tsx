@@ -80,7 +80,6 @@ const RenderDmNames = () => {
                 setUserImages(images);
             }
             
-            // console.log(names);
             
             setUniqueNames(uniqueNames);
             setDmObjects(matchingdm);
@@ -151,17 +150,20 @@ const RenderDmNames = () => {
             
                 {isSearching && 
                 <div className="search-user">
-                    <MdClose onClick={() => setIsSearching(false)} className="close-icon" />
-                    <input className="search-input" type="text" placeholder="search user" onChange={(e) => handleSearchUser(e)}  />
-                    { matchingUsers.map( user => (
-                        <div key={user._id} className="search-div"> 
-                            {user.image ? (<img className="profile-pic" src={user.image} />) : (
-                                <FaUserAlt className="profile-pic" />
-                            ) }
-                            <p onClick={() => handlePrivateDM(user.username, user._id ? user._id :"")}>{user.username}</p>
-                        </div>
+
+                    <div className="search-container">
+                        <MdClose onClick={() => setIsSearching(false)} className="close-icon" />
+                        <input className="search-input" type="text" placeholder="search user" onChange={(e) => handleSearchUser(e)}  />
+                        { matchingUsers.map( user => (
+                            <div key={user._id} className="search-div"> 
+                                {user.image ? (<img className="profile-pic" src={user.image} />) : (
+                                    <FaUserAlt className="profile-pic" />
+                                ) }
+                                <p onClick={() => handlePrivateDM(user.username, user._id ? user._id :"")}>{user.username}</p>
+                    </div>
 
                     ))}
+                </div>
 
         </div>
             }

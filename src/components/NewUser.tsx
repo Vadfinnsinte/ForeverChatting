@@ -20,37 +20,41 @@ const NewUser = () => {
     const [isCreated, setIsCreated] = useState<boolean>(false)
     const [isMarked, setIsMarked] = useState<boolean>(false)
     const [usernameNotavailable, setUsernameNotavailable] = useState<boolean>(false)
+    const [usernameToLong, setUsernameToLong] = useState<boolean>(false)
     const [passwordToShort, setPasswordToShort] = useState<boolean>(false)
     const [flairToLong, setFlairToLong] = useState<boolean>(false)
     const navigate = useNavigate() 
     console.log(isMarked);
     
     const  handleCreate = async () => {
-        setUser({...user, dateOfCreation: new Date()})
-        const userToSubmitt = {...user}
         
-        if(userToSubmitt.flair === ""){
-            delete userToSubmitt.flair
-        }
-        if(userToSubmitt.image === ""){
-            delete userToSubmitt.image
-        }
-        const response = await createUser(userToSubmitt)
         if(user.password.length < 10){
             setPasswordToShort(true)
         }
         if(user.flair && user.flair.length > 30){
             setFlairToLong(true)
         }
+        if(user.username && user.username.length > 14){
+            setUsernameToLong(true)
+        }
+        setUser({...user, dateOfCreation: new Date()})
+        const userToSubmitt = {...user}
+        if(userToSubmitt.flair === ""){
+            delete userToSubmitt.flair
+        }
+        if(userToSubmitt.image === ""){
+            delete userToSubmitt.image
+        }
+
+        const response = await createUser(userToSubmitt)
         if( response?.status === 409) {
             setUsernameNotavailable(true)
+            
         }
         
-         
+        
         else {
 
-            setIsCreated(true)
-    
             try {
                 const username = user.username
                 const password  = user.password
@@ -66,6 +70,9 @@ const NewUser = () => {
                 
                 if(response.status !== 200) {
                     return
+                }
+                if(response.ok) {
+                    setIsCreated(true)
                 }
                 
                 
@@ -88,6 +95,7 @@ const NewUser = () => {
     const handleUsername = (e:React.ChangeEvent<HTMLInputElement>) => {
         setUser({ ...user, username: e.target.value })
         setUsernameNotavailable(false)
+        setUsernameToLong(false)
     }
     const handlePassword = (e:React.ChangeEvent<HTMLInputElement>) =>  {
         setUser({ ...user, password: e.target.value })
@@ -98,6 +106,7 @@ const NewUser = () => {
         setFlairToLong(false)
 
     }
+
     const handleImage = (picture: string) => {
         setIsMarked(true)
         setUser({ ...user, image: picture})
@@ -117,6 +126,7 @@ const NewUser = () => {
         <>
         <div className="login-box create-box">
         <p className={usernameNotavailable ? "visible": "invisible"} >*username is taken</p>
+        <p className={usernameToLong ? "visible": "invisible"} >*max 13 charakters</p>
         <input onChange={(e) => handleUsername(e)} value={user.username} className="input" placeholder="Username*"/>
         <p className={passwordToShort ? "visible": "invisible"} >*must be 10 charakters</p>
         <input onChange={(e) => handlePassword(e)} value={user.password} className="input" placeholder="Password(min 10)* "/>

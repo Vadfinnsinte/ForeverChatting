@@ -31,12 +31,11 @@ const RenderPrivateDM = () => {
     
         if(activeusername){
             setActiveUser(activeusername)
-            
-        }
+        }else(
+            navigate("/chatrooms-guest")
+        )
 
         if(dmObjects){
-            // const matchingDms = dmObjects.filter(dm =>  (dm.senderName === activeusername && dm.reciverName === name) || 
-            // (dm.senderName === name && dm.reciverName === activeusername)) 
             const matchingDms = dmObjects.filter(dm => {
                 if (name === "deleted") {
                     return ( (dm.senderName === activeusername && dm.deletedID === id) || 
