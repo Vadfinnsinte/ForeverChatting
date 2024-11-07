@@ -57,7 +57,7 @@
 
 ### RoomMessage:
 | messageText      | roomName | senderName |likes? | date |
-| :----      |    :----   |      :----   |              :--- | :--- | 
+| :----      |    :----   |      :----   | :--- | :--- | 
 |string| string | string | number| Date|
 
 <br>
