@@ -31,7 +31,7 @@
 
 <br>
 
-### REST Chat-ooms
+### REST Chat-rooms
 | Method      | URL | body     | Response     |
 | :----:      |    :----   |      :----   |          :--- | 
 |GET| api/rooms| - | List of room-messages-objects. | 
@@ -69,4 +69,9 @@
 
 <br>
 <br>
-Länk till publicerad hemsida: https://foreverchat.onrender.com
+
+
+Published webpage: https://foreverchat.onrender.com
+
+Design in figma: https://www.figma.com/design/oteMublUXZ0vYmL9GhLh3L/ForeverChat?node-id=0-1&t=X7ahzplwjxolg58J-1
+
