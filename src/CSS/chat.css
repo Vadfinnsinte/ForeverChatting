@@ -51,6 +51,7 @@
 }
 .message-div {
     max-height: 24rem;
+    min-height: 24rem;
     overflow: scroll;
     margin: 1rem 2rem 0 2rem;
 }
@@ -105,6 +106,7 @@ cursor: default;
     .message-div {
         overflow: scroll;
         max-height: 33rem;
+        min-height: 33rem;
     }   
     .message-div::-webkit-scrollbar {
         display: none;
