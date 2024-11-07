@@ -80,9 +80,9 @@ router.put("/change-senders/:id", async (req: Request , res:Response)=> {
     const { resultSender, resultReceiver } = result;
    
     if (resultSender.matchedCount === 0 && resultReceiver.matchedCount === 0) {
-        res.sendStatus(204); // No content
+        res.sendStatus(204); 
     } else {
-        res.sendStatus(200); // Success, change was made
+        res.sendStatus(200); 
     }
 
   }

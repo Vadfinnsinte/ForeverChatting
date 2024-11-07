@@ -6,6 +6,6 @@ export interface DM {
     reciverName: string;
     senderName: string;
     deletedID?: ObjectId
-    likes: number;
+    likes?: number;
     date: Date;
 }

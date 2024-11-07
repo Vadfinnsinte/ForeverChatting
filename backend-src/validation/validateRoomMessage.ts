@@ -9,8 +9,7 @@ export const RoomMessageSchema = Joi.defaults(schema => {
             .min(1)
             .required(),
         roomName: Joi.string().required(),
-        senderName: Joi.string().optional(),
-        name: Joi.string().optional(),
+        senderName: Joi.string().required(),
         date: Joi.date().required(),
         likes: Joi.number().optional()
     }

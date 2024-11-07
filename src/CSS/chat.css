@@ -104,7 +104,7 @@ cursor: default;
 @media (min-width: 550px) {
     .message-div {
         overflow: scroll;
-        max-height: 35rem;
+        max-height: 33rem;
     }   
     .message-div::-webkit-scrollbar {
         display: none;

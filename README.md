@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### REST Users: 
+| Method      | URL | body     | Response     |
+| :----:      |    :----   |      :----   |          :--- |
+| GET      | /api/users       |-| List of user-objects.  |
+| GET  | /api/users/login        |-| Answer 404: Not found if user is unauthorized.   |
+| GET  | /api/users/search?q={username}  |-| Matching user objects.     |
+| GET  | /api/users/activeuser        |-| Username of loged in user. 401 If no user is loged in.     |
+| POST  | /api/users/new-user        |User-object| 409: If username is taken. <br>400: If something is wrong with body.    |
+| PUT  | /api/users/change-user/:id"        |User-object| 201: Created. <br> 404: No user matching id found.    |
 
-## Expanding the ESLint configuration
+<br>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### REST DM: 
+| Method      | URL | body     | Response     |
+| :----:      |    :----   |      :----   |          :--- |
+|GET| /api/dm//matching" |DM-object|List of DM matching loged in user.|
+|POST| /api/dm |-|201: Created <br>400: Bad-request if DM is not valid.|
+|POST| /api/dm/change-senders/:id |-|204: Sucessfully changed sendername to "deleted".|
 
-- Configure the top-level `parserOptions` property like this:
+<br>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### REST Room-message: 
+| Method      | URL | body     | Response     |
+| :----:      |    :----   |      :----   |          :--- |
+|GET| api/room-messages| - | List of room-messages-objects. | 
+|POST| api/room-messages/room| Room-message-object | 201: Created. <br>400: Bad-request if message is not valid. | 
+|PUT| api/room-messages/delete-username| Room-message-object | 204: When changed deleted users username is changed to "deleted". <br>404: If no message is found. |
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<br>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### REST Chat-ooms
+| Method      | URL | body     | Response     |
+| :----:      |    :----   |      :----   |          :--- | 
+|GET| api/rooms| - | List of room-messages-objects. | 
+|POST| api/rooms//new-room| Room-object | 201: Created. <br> 400: if something is wrong in body. | 
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+<br>
+
+## Interfaces: 
+
+### Users:
+| username      | password | image?     | flair?     | dateOfCreation |
+| :----      |    :----   |      :----   |          :--- |         :--- | 
+|string| string | string| string| Date|
+
+<br>
+
+### DM:
+| messageText      | reciverName | senderName     | deletedId?    |likes? | date |
+| :----      |    :----   |      :----   |          :--- |         :--- | :--- | 
+|string| string | string|ObjectId| number| Date|
+
+<br>
+
+### RoomMessage:
+| messageText      | roomName | senderName |likes? | date |
+| :----      |    :----   |      :----   |              :--- | :--- | 
+|string| string | string | number| Date|
+
+<br>
+
+### Room: 
+| name      | status|
+| :----:      |    :----   | 
+|string| boolean|
+
+<br>
+<br>
+Länk till publicerad hemsida: https://foreverchat.onrender.com
