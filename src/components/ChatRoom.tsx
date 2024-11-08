@@ -108,6 +108,11 @@ const ChatRoom = () => {
         return userImages[senderName] 
         
     };
+    const handlePressEnter = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          handleSendMessage();
+        }
+      }
     useEffect(() => {
         handleGet()
     },[])
@@ -149,7 +154,7 @@ const ChatRoom = () => {
             <p className="emty-chat-p">This chat is emty :/</p>
         )}
         </div>
-        <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
+        <textarea value={messageInput} onKeyDown={handlePressEnter} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
         <button onClick={handleSendMessage} className="button send-btn" >Send</button>
         </main>
         </>

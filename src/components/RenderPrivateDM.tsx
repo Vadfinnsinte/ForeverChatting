@@ -18,6 +18,7 @@ const RenderPrivateDM = () => {
     const setActiveUser = useVariableStore(state => state.setActiveUser)
     const [senderPicture, setSenderPicture] = useState<User |string>("")
     const [activePicture, setActivePicture] = useState<User |string>("")
+    const [disable, setDisable] = useState<boolean>(false)
     const activeUser = useVariableStore(state => state.activeUser)
     const messageDivRef = useRef<HTMLDivElement>(null)
     
@@ -38,6 +39,7 @@ const RenderPrivateDM = () => {
         if(dmObjects){
             const matchingDms = dmObjects.filter(dm => {
                 if (name === "deleted") {
+                    setDisable(true)
                     return ( (dm.senderName === activeusername && dm.deletedID === id) || 
                      (dm.deletedID === id && dm.reciverName === activeusername))
                 } else {
@@ -105,6 +107,11 @@ const RenderPrivateDM = () => {
      const handleback = () => {
         navigate("/chatrooms")
     }
+    const handlePressEnter = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          handleSendMessage();
+        }
+      }
     useEffect(() => {
         if (sortedDms) {
             scrollToBottom()
@@ -147,8 +154,8 @@ const RenderPrivateDM = () => {
         )
         }
         </div>
-         <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
-        <button onClick={handleSendMessage} className="button send-btn" >Send</button>
+         <textarea value={messageInput} onKeyDown={handlePressEnter} onChange={(e) => setMessageInput(e.target.value)} className="message-input" placeholder="type message.." cols={2} rows={3} ></textarea>   
+        <button disabled={disable} onClick={handleSendMessage} className="button send-btn" >Send</button>
         
         </main>
         </>

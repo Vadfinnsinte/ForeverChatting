@@ -171,7 +171,7 @@ const RenderDmNames = () => {
         </div>
         <details open={isOpen}>
             <summary></summary>
-            {uniqueNames.length > 1 ? (
+            {uniqueNames.length > 0 ? (
                  uniqueNames.map(({ displayName, id }, index) => (
             <div key={index} className="pic-name-div small">
                 {getUserImage(displayName) ? (

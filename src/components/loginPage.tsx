@@ -81,7 +81,11 @@ const LoginPage = () => {
         setPasswordInput(e.target.value)
         setIsWrong(false)
     }
-    
+    const handlePressEnter = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          handleLogin();
+        }
+      }
     
     return (
         <>
@@ -93,8 +97,8 @@ const LoginPage = () => {
         <main>
              <div className="login-box">
                 <h2>Login:</h2>
-                <input onChange={(e) => userinputHandler(e)} className="input" type="text" placeholder="Username"></input>
-                <input onChange={(e) => passinputHandler(e)} className="input" type="password" placeholder="Password"></input>
+                <input onChange={(e) => userinputHandler(e)} onKeyDown={handlePressEnter} className="input" type="text" placeholder="Username"></input>
+                <input onChange={(e) => passinputHandler(e)} onKeyDown={handlePressEnter} className="input" type="password" placeholder="Password"></input>
                 <button onClick={handleLogin} className="login-btn button" >Login</button>
                 <p className={!wrong ? "wrong-login" : "not-wrong"}>*Wrong password or username</p>
             </div>
