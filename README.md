@@ -19,7 +19,7 @@
 | :----:      |    :----   |      :----   |          :--- |
 |GET| /api/dm//matching" |DM-object|List of DM matching loged in user.|
 |POST| /api/dm |-|201: Created <br>400: Bad-request if DM is not valid.|
-|POST| /api/dm/change-senders/:id |-|204: Sucessfully changed sendername to "deleted".|
+|PUT| /api/dm/change-senders/:id |-|204: Sucessfully changed sendername to "deleted".|
 
 <br>
 
