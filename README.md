@@ -10,6 +10,7 @@
 | GET  | /api/users/activeuser        |-| Username of loged in user. 401 If no user is loged in.     |
 | POST  | /api/users/new-user        |User-object| 409: If username is taken. <br>400: If something is wrong with body.    |
 | PUT  | /api/users/change-user/:id"        |User-object| 201: Created. <br> 404: No user matching id found.    |
+| DELETE  | /api/users/change-user/:id"        || 204: No content when succsessful. <br> 404: No user matching id found.    |
 
 <br>
 
