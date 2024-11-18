@@ -9,15 +9,15 @@
 | GET  | /api/users/search?q={username}  |-| Matching user objects.     |
 | GET  | /api/users/activeuser        |-| Username of loged in user. 401 If no user is loged in.     |
 | POST  | /api/users/new-user        |User-object| 409: If username is taken. <br>400: If something is wrong with body.    |
-| PUT  | /api/users/change-user/:id"        |User-object| 201: Created. <br> 404: No user matching id found.    |
-| DELETE  | /api/users/change-user/:id"        || 204: No content when succsessful. <br> 404: No user matching id found.    |
+| PUT  | /api/users/change-user/:id        |User-object| 201: Created. <br> 404: No user matching id found.    |
+| DELETE  | /api/users/change-user/:id        || 204: No content when succsessful. <br> 404: No user matching id found.    |
 
 <br>
 
 ### REST DM: 
 | Method      | URL | body     | Response     |
 | :----:      |    :----   |      :----   |          :--- |
-|GET| /api/dm//matching" |DM-object|List of DM matching loged in user.|
+|GET| /api/dm/matching |DM-object|List of DM matching loged in user.|
 |POST| /api/dm |-|201: Created <br>400: Bad-request if DM is not valid.|
 |PUT| /api/dm/change-senders/:id |-|204: Sucessfully changed sendername to "deleted".|
 
@@ -36,7 +36,7 @@
 | Method      | URL | body     | Response     |
 | :----:      |    :----   |      :----   |          :--- | 
 |GET| api/rooms| - | List of room-messages-objects. | 
-|POST| api/rooms//new-room| Room-object | 201: Created. <br> 400: if something is wrong in body. | 
+|POST| api/rooms/new-room| Room-object | 201: Created. <br> 400: if something is wrong in body. | 
 
 <br>
 
